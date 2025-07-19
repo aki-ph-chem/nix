@@ -14,6 +14,8 @@
     pkgs.swaybg
     pkgs.waybar
     pkgs.rofi
+    # CLI tools
+    pkgs.hugo
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
