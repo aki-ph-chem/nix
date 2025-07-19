@@ -10,7 +10,7 @@
 
   home.packages = [
     pkgs.cowsay
-    # sway
+    # sway itself is cannot managed by Nix on Arch Linux
     pkgs.swaybg
     pkgs.waybar
     pkgs.rofi
