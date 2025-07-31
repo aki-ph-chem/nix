@@ -14,6 +14,7 @@
     pkgs.swaybg
     pkgs.waybar
     pkgs.rofi
+    pkgs.kanshi
     # CLI tools
     pkgs.hugo
     # for Neovim
