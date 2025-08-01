@@ -20,6 +20,17 @@
     pkgs.fzf
     # for Neovim
     pkgs.deno
+    pkgs.gopls
+    pkgs.lua-language-server
+    ### Language server for Nix Language
+    pkgs.nil
+    ## in previously installed by Cargo
+    ### Language server for Tex(LaTex)
+    pkgs.texlab
+    ### fomatter for Lua
+    pkgs.stylua
+    ### Language server for Markdown
+    pkgs.markdown-oxide
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
