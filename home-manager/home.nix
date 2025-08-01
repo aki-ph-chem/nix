@@ -17,6 +17,7 @@
     pkgs.kanshi
     # CLI tools
     pkgs.hugo
+    pkgs.fzf
     # for Neovim
     pkgs.deno
   ];
