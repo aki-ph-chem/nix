@@ -29,6 +29,8 @@
     pkgs.texlab
     ### fomatter for Lua
     pkgs.stylua
+    ### formatter for json
+    pkgs.jq
     ### Language server for Markdown
     pkgs.markdown-oxide
   ];
