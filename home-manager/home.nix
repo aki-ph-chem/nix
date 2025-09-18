@@ -33,6 +33,8 @@
     pkgs.jq
     ### Language server for Markdown
     pkgs.markdown-oxide
+    ### lux: package manager for Lua
+    pkgs.lux-cli
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
