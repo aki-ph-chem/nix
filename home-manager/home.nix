@@ -18,6 +18,8 @@
     # CLI tools
     pkgs.hugo
     pkgs.fzf
+    pkgs.lazygit
+    pkgs.uv
     # for Neovim
     pkgs.deno
     pkgs.gopls
