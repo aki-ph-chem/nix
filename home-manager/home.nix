@@ -29,6 +29,8 @@
     ## in previously installed by Cargo
     ### Language server for Tex(LaTex)
     pkgs.texlab
+    ### all in one tools for Typst
+    pkgs.tinymist
     ### fomatter for Lua
     pkgs.stylua
     ### formatter for json
