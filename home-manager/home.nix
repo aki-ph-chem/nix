@@ -27,22 +27,24 @@
 
   programs.neovim = {
     enable = true;
-        extraPackages =  [
-        pkgs.gopls
-        pkgs.lua-language-server
-        ### Language server for Nix Language
-        pkgs.nil
-        ## in previously installed by Cargo
-        ### Language server for Tex(LaTex)
-        pkgs.texlab
-        ### all in one tools for Typst
-        pkgs.tinymist
-        ### fomatter for Lua
-        pkgs.stylua
-        ### formatter for json
-        pkgs.jq
-        ### Language server for Markdown
-        pkgs.markdown-oxide
+    extraPackages = [
+      pkgs.gopls
+      pkgs.lua-language-server
+      ### Language server for Nix Language
+      pkgs.nil
+      ## in previously installed by Cargo
+      ### Language server for Tex(LaTex)
+      pkgs.texlab
+      ### all in one tools for Typst
+      pkgs.tinymist
+      ### fomatter for Lua
+      pkgs.stylua
+      ### formatter for json
+      pkgs.jq
+      ### fomatter for Nix Language
+      pkgs.nixfmt-rfc-style
+      ### Language server for Markdown
+      pkgs.markdown-oxide
     ];
   };
 
