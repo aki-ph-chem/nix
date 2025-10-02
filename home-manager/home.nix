@@ -20,26 +20,34 @@
     pkgs.fzf
     pkgs.lazygit
     pkgs.uv
-    # for Neovim
     pkgs.deno
-    pkgs.gopls
-    pkgs.lua-language-server
-    ### Language server for Nix Language
-    pkgs.nil
-    ## in previously installed by Cargo
-    ### Language server for Tex(LaTex)
-    pkgs.texlab
-    ### all in one tools for Typst
-    pkgs.tinymist
-    ### fomatter for Lua
-    pkgs.stylua
-    ### formatter for json
-    pkgs.jq
-    ### Language server for Markdown
-    pkgs.markdown-oxide
-    ### lux: package manager for Lua
+    ## lux: package manager for Lua
     pkgs.lux-cli
   ];
+
+  programs.neovim = {
+    enable = true;
+    extraPackages = [
+      # Language Servers
+      pkgs.gopls
+      pkgs.lua-language-server
+      ## Language server for Nix Language
+      pkgs.nil
+      ## Language server for Tex(LaTex)
+      pkgs.texlab
+      ## Language server for Typst
+      pkgs.tinymist
+      # fromatter
+      ## fomatter for Lua
+      pkgs.stylua
+      ## formatter for json
+      pkgs.jq
+      ## fomatter for Nix Language
+      pkgs.nixfmt-rfc-style
+      ## Language server for Markdown
+      pkgs.markdown-oxide
+    ];
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
