@@ -21,29 +21,30 @@
     pkgs.lazygit
     pkgs.uv
     pkgs.deno
-    ### lux: package manager for Lua
+    ## lux: package manager for Lua
     pkgs.lux-cli
   ];
 
   programs.neovim = {
     enable = true;
     extraPackages = [
+      # Language Servers
       pkgs.gopls
       pkgs.lua-language-server
-      ### Language server for Nix Language
+      ## Language server for Nix Language
       pkgs.nil
-      ## in previously installed by Cargo
-      ### Language server for Tex(LaTex)
+      ## Language server for Tex(LaTex)
       pkgs.texlab
-      ### all in one tools for Typst
+      ## Language server for Typst
       pkgs.tinymist
-      ### fomatter for Lua
+      # fromatter
+      ## fomatter for Lua
       pkgs.stylua
-      ### formatter for json
+      ## formatter for json
       pkgs.jq
-      ### fomatter for Nix Language
+      ## fomatter for Nix Language
       pkgs.nixfmt-rfc-style
-      ### Language server for Markdown
+      ## Language server for Markdown
       pkgs.markdown-oxide
     ];
   };
