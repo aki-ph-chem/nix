@@ -18,6 +18,9 @@
     # CLI tools
     pkgs.hugo
     pkgs.fzf
+    pkgs.fd
+    pkgs.ripgrep
+    pkgs.bat
     pkgs.lazygit
     pkgs.uv
     pkgs.deno
