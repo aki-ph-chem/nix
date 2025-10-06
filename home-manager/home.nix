@@ -24,6 +24,7 @@
     pkgs.lazygit
     pkgs.uv
     pkgs.deno
+    pkgs.direnv
     ## lux: package manager for Lua
     pkgs.lux-cli
   ];
@@ -36,6 +37,8 @@
       pkgs.lua-language-server
       ## Language server for Nix Language
       pkgs.nil
+      ## ty
+      pkgs.ty
       ## Language server for Tex(LaTex)
       pkgs.texlab
       ## Language server for Typst
