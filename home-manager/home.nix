@@ -24,10 +24,15 @@
     pkgs.lazygit
     pkgs.uv
     pkgs.deno
-    pkgs.direnv
     ## lux: package manager for Lua
     pkgs.lux-cli
   ];
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    nix-direnv.enable = true;
+  };
 
   programs.neovim = {
     enable = true;
