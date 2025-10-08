@@ -57,6 +57,9 @@
       pkgs.nixfmt-rfc-style
       ## Language server for Markdown
       pkgs.markdown-oxide
+      # others
+      ## tree-sitter
+      pkgs.tree-sitter
     ];
   };
 
