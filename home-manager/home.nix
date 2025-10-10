@@ -24,6 +24,7 @@
     pkgs.lazygit
     pkgs.uv
     pkgs.deno
+    pkgs.shellcheck
     ## lux: package manager for Lua
     pkgs.lux-cli
   ];
