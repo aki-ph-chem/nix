@@ -29,6 +29,16 @@
     pkgs.lux-cli
   ];
 
+  # Git
+  programs.git = {
+    enable = true;
+    userName = "aki";
+    userEmail = "aki@mymail.com";
+    extraConfig.init = {
+      defaultBranch = "main";
+    };
+  };
+
   programs.direnv = {
     enable = true;
     enableBashIntegration = true;
