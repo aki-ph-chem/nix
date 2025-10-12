@@ -10,11 +10,14 @@
 
   home.packages = [
     pkgs.cowsay
+    # not install sway related packages in xfce environment
     # sway itself is cannot managed by Nix on Arch Linux
-    pkgs.swaybg
-    pkgs.waybar
-    pkgs.rofi
-    pkgs.kanshi
+    /*
+      pkgs.swaybg
+      pkgs.waybar
+      pkgs.rofi
+      pkgs.kanshi
+    */
     # CLI tools
     pkgs.hugo
     pkgs.fzf
@@ -29,20 +32,23 @@
     pkgs.lux-cli
   ];
 
-  i18n = {
-    inputMethod = {
-      enable = true;
-      type = "fcitx5";
-      fcitx5 = {
-        addons = [
-          pkgs.fcitx5-configtool
-          pkgs.fcitx5-mozc
-          pkgs.libsForQt5.fcitx5-qt
-          pkgs.fcitx5-gtk
-        ];
+  # not install fcitx5 related packages in xfce environment
+  /*
+    i18n = {
+      inputMethod = {
+        enable = true;
+        type = "fcitx5";
+        fcitx5 = {
+          addons = [
+            pkgs.fcitx5-configtool
+            pkgs.fcitx5-mozc
+            pkgs.libsForQt5.fcitx5-qt
+            pkgs.fcitx5-gtk
+          ];
+        };
       };
     };
-  };
+  */
 
   # Git
   programs.git = {
