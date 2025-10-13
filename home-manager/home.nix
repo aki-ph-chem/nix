@@ -75,6 +75,8 @@
       ## Language server for Typst
       pkgs.tinymist
       # fromatter
+      ## emf-langserver
+      pkgs.efm-langserver
       ## fomatter for Lua
       pkgs.stylua
       ## formatter for json
