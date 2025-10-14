@@ -21,7 +21,11 @@
     pkgs.fd
     pkgs.ripgrep
     pkgs.bat
+    # git related packages
     pkgs.lazygit
+    pkgs.gh
+    pkgs.glab
+    # languages tool
     pkgs.uv
     pkgs.deno
     pkgs.shellcheck
