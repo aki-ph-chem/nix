@@ -10,33 +10,12 @@
     ./modules/neovim.nix
     ./modules/i18n.nix
     ./modules/sway-related.nix
+    ./modules/cli-tools.nix
   ];
 
   home.packages = [
     pkgs.cowsay
-    # CLI tools
-    pkgs.hugo
-    pkgs.fzf
-    pkgs.fd
-    pkgs.ripgrep
-    pkgs.bat
-    # git related packages
-    pkgs.lazygit
-    pkgs.gh
-    pkgs.glab
-    # languages tool
-    pkgs.uv
-    pkgs.deno
-    pkgs.shellcheck
-    ## lux: package manager for Lua
-    pkgs.lux-cli
   ];
-
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    nix-direnv.enable = true;
-  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
