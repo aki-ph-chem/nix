@@ -7,6 +7,12 @@ $ nix flake update # update flake
 $ home-manager switch --flake . # in this repositroy
 ```
 
+In the `sway` desktop environment, the following command installs packages related to `sway`.
+
+```bash
+$ HM_DESKTOP=sway home-manager switch --flake . --impure
+```
+
 ## serach packeges
 
 ```bash
