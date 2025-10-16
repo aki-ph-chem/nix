@@ -8,6 +8,7 @@
   imports = [
     ./modules/git.nix
     ./modules/neovim.nix
+    ./modules/i18n.nix
   ];
 
   home.packages = [
@@ -34,21 +35,6 @@
     ## lux: package manager for Lua
     pkgs.lux-cli
   ];
-
-  i18n = {
-    inputMethod = {
-      enable = true;
-      type = "fcitx5";
-      fcitx5 = {
-        addons = [
-          pkgs.fcitx5-configtool
-          pkgs.fcitx5-mozc
-          pkgs.libsForQt5.fcitx5-qt
-          pkgs.fcitx5-gtk
-        ];
-      };
-    };
-  };
 
   programs.direnv = {
     enable = true;
