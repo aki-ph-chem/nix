@@ -6,6 +6,7 @@
   home.stateVersion = "25.05";
 
   imports = [
+    ./modules/git.nix
   ];
 
   home.packages = [
@@ -45,16 +46,6 @@
           pkgs.fcitx5-gtk
         ];
       };
-    };
-  };
-
-  # Git
-  programs.git = {
-    enable = true;
-    userName = "aki";
-    userEmail = "aki@mymail.com";
-    extraConfig.init = {
-      defaultBranch = "main";
     };
   };
 
