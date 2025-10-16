@@ -9,15 +9,11 @@
     ./modules/git.nix
     ./modules/neovim.nix
     ./modules/i18n.nix
+    ./modules/sway-related.nix
   ];
 
   home.packages = [
     pkgs.cowsay
-    # sway itself is cannot managed by Nix on Arch Linux
-    pkgs.swaybg
-    pkgs.waybar
-    pkgs.rofi
-    pkgs.kanshi
     # CLI tools
     pkgs.hugo
     pkgs.fzf
