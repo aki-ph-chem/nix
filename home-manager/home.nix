@@ -6,94 +6,16 @@
   home.stateVersion = "25.05";
 
   imports = [
+    ./modules/git.nix
+    ./modules/neovim.nix
+    ./modules/i18n.nix
+    ./modules/sway-related.nix
+    ./modules/cli-tools.nix
   ];
 
   home.packages = [
     pkgs.cowsay
-    # sway itself is cannot managed by Nix on Arch Linux
-    pkgs.swaybg
-    pkgs.waybar
-    pkgs.rofi
-    pkgs.kanshi
-    # CLI tools
-    pkgs.hugo
-    pkgs.fzf
-    pkgs.fd
-    pkgs.ripgrep
-    pkgs.bat
-    # git related packages
-    pkgs.lazygit
-    pkgs.gh
-    pkgs.glab
-    # languages tool
-    pkgs.uv
-    pkgs.deno
-    pkgs.shellcheck
-    ## lux: package manager for Lua
-    pkgs.lux-cli
   ];
-
-  i18n = {
-    inputMethod = {
-      enable = true;
-      type = "fcitx5";
-      fcitx5 = {
-        addons = [
-          pkgs.fcitx5-configtool
-          pkgs.fcitx5-mozc
-          pkgs.libsForQt5.fcitx5-qt
-          pkgs.fcitx5-gtk
-        ];
-      };
-    };
-  };
-
-  # Git
-  programs.git = {
-    enable = true;
-    userName = "aki";
-    userEmail = "aki@mymail.com";
-    extraConfig.init = {
-      defaultBranch = "main";
-    };
-  };
-
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    nix-direnv.enable = true;
-  };
-
-  programs.neovim = {
-    enable = true;
-    extraPackages = [
-      # Language Servers
-      pkgs.gopls
-      pkgs.lua-language-server
-      ## Language server for Nix Language
-      pkgs.nil
-      ## ty
-      pkgs.ty
-      ## Language server for Tex(LaTex)
-      pkgs.texlab
-      ## Language server for Typst
-      pkgs.tinymist
-      # fromatter
-      ## emf-langserver
-      pkgs.efm-langserver
-      ## fomatter for Lua
-      pkgs.stylua
-      ## formatter for json
-      pkgs.jq
-      ## fomatter for Nix Language
-      pkgs.nixfmt-rfc-style
-      ## Language server for Markdown
-      pkgs.markdown-oxide
-      # others
-      ## tree-sitter
-      pkgs.tree-sitter
-    ];
-  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
