@@ -1,8 +1,16 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 
 let
   desktopEnv = builtins.getEnv "HM_DESKTOP";
-  isSway = desktopEnv == "sway";
+  tracedDesktopEnv = builtins.trace ("DEBUG: HM_DESKTOP is: " + desktopEnv) desktopEnv;
+  isSway = tracedDesktopEnv == "sway";
+  tracedIsSway = builtins.trace (
+    "DEBUG: isSway flag is:  " + (if isSway then "true" else "false")
+  ) isSway;
 in
 
 {
@@ -11,12 +19,12 @@ in
   home.stateVersion = "25.05";
 
   imports = [
-    ./modules/git.nix
     ./modules/neovim.nix
     ./modules/cli-tools.nix
+    ./modules/git.nix
   ]
   ++ (
-    if isSway then
+    if tracedIsSway then
       [
         ./modules/i18n.nix
         ./modules/sway-related.nix
