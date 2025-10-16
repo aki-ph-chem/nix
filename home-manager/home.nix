@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 
+let
+  desktopEnv = builtins.getEnv "HM_DESKTOP";
+  isSway = desktopEnv == "sway";
+in
+
 {
   home.username = "aki";
   home.homeDirectory = "/home/aki";
@@ -8,10 +13,17 @@
   imports = [
     ./modules/git.nix
     ./modules/neovim.nix
-    ./modules/i18n.nix
-    ./modules/sway-related.nix
     ./modules/cli-tools.nix
-  ];
+  ]
+  ++ (
+    if isSway then
+      [
+        ./modules/i18n.nix
+        ./modules/sway-related.nix
+      ]
+    else
+      [ ]
+  );
 
   home.packages = [
     pkgs.cowsay
