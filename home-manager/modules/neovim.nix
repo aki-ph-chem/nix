@@ -1,6 +1,18 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}:
+
+let
+  nvimConfigPath = "${config.home.homeDirectory}/neovim-config/nvim";
+in
+{
+
+  home.file.".config/nvim" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${nvimConfigPath}";
+    recursive = true;
+  };
 
   programs.neovim = {
     enable = true;
