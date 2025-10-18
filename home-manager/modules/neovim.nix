@@ -21,12 +21,14 @@ in
     pkgs.libskk
   ];
 
-  home.sessionVariables = {
-    SKK_JISYO_L_PATH = traceSkkDictPath;
-  };
-
   programs.neovim = {
     enable = true;
+
+    extraWrapperArgs = [
+      "--set"
+      "SKK_JISYO_L_PATH"
+      traceSkkDictPath
+    ];
 
     extraPackages = [
       # Language Servers
