@@ -5,7 +5,7 @@
 }:
 
 let
-  nvimConfigPath = "/home/aki/neovim-config/nvim";
+  nvimConfigPath = "${config.home.homeDirectory}/neovim-config/nvim";
 in
 {
 
