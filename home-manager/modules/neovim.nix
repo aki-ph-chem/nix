@@ -6,6 +6,9 @@
 
 let
   nvimConfigPath = "${config.home.homeDirectory}/neovim-config/nvim";
+  skkDict = pkgs.libskk;
+  skkDictPath = "${skkDict}/share/skk/SKK-JISYO.L";
+  traceSkkDictPath = builtins.trace ("DEBUG: skkDictPath " + skkDictPath) skkDictPath;
 in
 {
 
@@ -14,8 +17,19 @@ in
     recursive = true;
   };
 
+  home.packages = [
+    pkgs.libskk
+  ];
+
   programs.neovim = {
     enable = true;
+
+    extraWrapperArgs = [
+      "--set"
+      "SKK_JISYO_L_PATH"
+      traceSkkDictPath
+    ];
+
     extraPackages = [
       # Language Servers
       pkgs.gopls
