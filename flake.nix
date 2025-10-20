@@ -23,6 +23,7 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      pkgs-nvim0113 = import nixpkgs-nvim0113 { inherit system; };
     in
     {
       homeConfigurations."aki" = home-manager.lib.homeManagerConfiguration {

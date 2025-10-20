@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  nixpkgs-nvim0113,
   ...
 }:
 
