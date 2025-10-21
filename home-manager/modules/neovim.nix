@@ -13,13 +13,13 @@ let
   pkgsNvim0113 = import nixpkgs-nvim0113 {
     system = builtins.currentSystem;
   };
+  nvimWrapper = pkgs.writeShellScriptBin "nvim" ''
+    export SKK_JISYO_L_PATH="${traceSkkDictPath}"
+
+    exec ${pkgsNvim0113.neovim}/bin/nvim "$@"
+  '';
 in
 {
-  nixpkgs.overlays = [
-    (final: prev: {
-      neovim = pkgsNvim0113.neovim;
-    })
-  ];
 
   home.file.".config/nvim" = {
     source = config.lib.file.mkOutOfStoreSymlink "${nvimConfigPath}";
@@ -28,47 +28,33 @@ in
 
   home.packages = [
     pkgs.libskk
-    pkgs.neovim
+    nvimWrapper
+
+    # Language Servers
+    pkgs.gopls
+    pkgs.lua-language-server
+    ## Language server for Nix Language
+    pkgs.nil
+    ## ty
+    pkgs.ty
+    ## Language server for Tex(LaTex)
+    pkgs.texlab
+    ## Language server for Typst
+    pkgs.tinymist
+    # fromatter
+    ## emf-langserver
+    pkgs.efm-langserver
+    ## fomatter for Lua
+    pkgs.stylua
+    ## formatter for json
+    pkgs.jq
+    ## fomatter for Nix Language
+    pkgs.nixfmt-rfc-style
+    ## Language server for Markdown
+    pkgs.markdown-oxide
+    # others
+    ## tree-sitter
+    pkgs.tree-sitter
   ];
 
-  /*
-    programs.neovim = {
-      enable = true;
-      package = pkgsNvim0113.neovim;
-
-      extraWrapperArgs = [
-        "--set"
-        "SKK_JISYO_L_PATH"
-        traceSkkDictPath
-      ];
-
-      extraPackages = [
-        # Language Servers
-        pkgs.gopls
-        pkgs.lua-language-server
-        ## Language server for Nix Language
-        pkgs.nil
-        ## ty
-        pkgs.ty
-        ## Language server for Tex(LaTex)
-        pkgs.texlab
-        ## Language server for Typst
-        pkgs.tinymist
-        # fromatter
-        ## emf-langserver
-        pkgs.efm-langserver
-        ## fomatter for Lua
-        pkgs.stylua
-        ## formatter for json
-        pkgs.jq
-        ## fomatter for Nix Language
-        pkgs.nixfmt-rfc-style
-        ## Language server for Markdown
-        pkgs.markdown-oxide
-        # others
-        ## tree-sitter
-        pkgs.tree-sitter
-      ];
-    };
-  */
 }
