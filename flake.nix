@@ -25,11 +25,14 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      pkgs-nvim0113 = import nixpkgs-nvim0113 { inherit system; };
     in
     {
       homeConfigurations."aki" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+
+        extraSpecialArgs = {
+          inherit nixpkgs-nvim0113;
+        };
 
         modules = [ ./home-manager/home.nix ];
       };
