@@ -13,23 +13,8 @@ let
   pkgsNvim0113 = import nixpkgs-nvim0113 {
     system = builtins.currentSystem;
   };
-  nvimWrapper = pkgs.writeShellScriptBin "nvim" ''
-    export SKK_JISYO_L_PATH="${traceSkkDictPath}"
 
-    exec ${pkgsNvim0113.neovim}/bin/nvim "$@"
-  '';
-in
-{
-
-  home.file.".config/nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${nvimConfigPath}";
-    recursive = true;
-  };
-
-  home.packages = [
-    pkgs.libskk
-    nvimWrapper
-
+  neovimExtraPackages = [
     # Language Servers
     pkgs.gopls
     pkgs.lua-language-server
@@ -55,6 +40,25 @@ in
     # others
     ## tree-sitter
     pkgs.tree-sitter
+  ];
+  extraPkackgesBinPath = pkgs.lib.makeBinPath neovimExtraPackages;
+  nvimWrapper = pkgs.writeShellScriptBin "nvim" ''
+    export SKK_JISYO_L_PATH="${traceSkkDictPath}"
+    export PATH="${extraPkackgesBinPath}:$PATH"
+
+    exec ${pkgsNvim0113.neovim}/bin/nvim "$@"
+  '';
+in
+{
+
+  home.file.".config/nvim" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${nvimConfigPath}";
+    recursive = true;
+  };
+
+  home.packages = [
+    pkgs.libskk
+    nvimWrapper
   ];
 
 }
