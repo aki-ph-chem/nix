@@ -19,6 +19,8 @@
     pkgs.shellcheck
     ## lux: package manager for Lua
     pkgs.lux-cli
+    ## GNU global
+    pkgs.global
   ];
 
   programs.direnv = {
