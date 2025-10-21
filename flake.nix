@@ -8,6 +8,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # The hash value in the URL ‘github:NixOS/nixpkgs/<hash value>’ was obtained
+    # by searching for neovim on https://www.nixhub.io, then selecting version 0.11.3.
     nixpkgs-nvim0113 = {
       url = "github:NixOS/nixpkgs/648f70160c03151bc2121d179291337ad6bc564b";
     };
@@ -29,12 +31,7 @@
       homeConfigurations."aki" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
         modules = [ ./home-manager/home.nix ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
       };
     };
 }
