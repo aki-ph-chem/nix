@@ -14,6 +14,10 @@ let
     system = builtins.currentSystem;
   };
 
+  nvimVersion = builtins.getEnv "NVIM_VERSION";
+  traceNvimVersion = builtins.trace ("DEBUG: NVIM_VERSION is : " + nvimVersion) nvimVersion;
+  nvim = if traceNvimVersion == "0.11.3" then pkgsNvim0113.neovim else pkgs.neovim;
+
   neovimExtraPackages = [
     # Language Servers
     pkgs.gopls
@@ -46,7 +50,7 @@ let
     export SKK_JISYO_L_PATH="${traceSkkDictPath}"
     export PATH="${extraPkackgesBinPath}:$PATH"
 
-    exec ${pkgsNvim0113.neovim}/bin/nvim "$@"
+    exec ${nvim}/bin/nvim "$@"
   '';
 in
 {
