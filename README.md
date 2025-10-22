@@ -27,3 +27,9 @@ $ home-manager switch --flake . --impure # use neovim 0.11.4 as default
 ```bash
 $ nix search nixpkgs <packege name>
 ```
+
+## remove old files (old generations) in `/nix/store`
+
+```bash
+$ nix-collect-garbage --delete-old
+```
