@@ -21,6 +21,8 @@
     pkgs.lux-cli
     ## GNU global
     pkgs.global
+    ## for network
+    pkgs.netcat-gnu
   ];
 
   programs.direnv = {
