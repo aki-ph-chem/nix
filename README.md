@@ -18,3 +18,9 @@ $ HM_DESKTOP=sway home-manager switch --flake . --impure
 ```bash
 $ nix search nixpkgs <packege name>
 ```
+
+## remove old files (old generations) in `/nix/store`
+
+```bash
+$ nix-collect-garbage --delete-old
+```
