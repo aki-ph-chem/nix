@@ -21,6 +21,9 @@
     pkgs.lux-cli
     ## GNU global
     pkgs.global
+    ## for network
+    pkgs.ookla-speedtest
+    pkgs.netcat-gnu
   ];
 
   programs.direnv = {
