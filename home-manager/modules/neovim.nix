@@ -9,6 +9,11 @@ let
   skkDict = pkgs.libskk;
   skkDictPath = "${skkDict}/share/skk/SKK-JISYO.L";
   traceSkkDictPath = builtins.trace ("DEBUG: skkDictPath " + skkDictPath) skkDictPath;
+  skkEmojiDictJa = builtins.fetchTarball {
+    url = "https://github.com/ymrl/SKK-JISYO.emoji-ja/archive/refs/heads/master.tar.gz";
+    sha256 = "1mws99wxy5j55aa3dv8ynqqbx5iw4553vkda6rsh054yn8hiy1bb";
+  };
+  skkEmojiDictJaPath = "${skkEmojiDictJa}/SKK-JISYO.emoji-ja.utf8";
 in
 {
 
@@ -28,6 +33,9 @@ in
       "--set"
       "SKK_JISYO_L_PATH"
       traceSkkDictPath
+      "--set"
+      "SKK_JISYO_EMOJI_JA_PATH"
+      skkEmojiDictJaPath
     ];
 
     extraPackages = [
