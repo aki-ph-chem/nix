@@ -4,17 +4,17 @@
 
 The configuration files are organized as follows:
 
-| File/path                               | Description |
-|-----------------------------------------|-------------|
-| `flake.nix`                             |             |
-| `flake.lock`                            |             |
-| `home-manager/home.nix`                 |             |
-| `home-manager/modules/cli-tools.nix`    |             |
-| `home-manager/modules/git.nix`          |             |
-| `home-manager/modules/gui-app.nix`      |             |
-| `home-manager/modules/i18n.nix`         |             |
-| `home-manager/modules/neovim.nix`       |             |
-| `home-manager/modules/sway-related.nix` |             |
+| File/path                               | Description                                     |
+|-----------------------------------------|-------------------------------------------------|
+| `flake.nix`                             | entry point and declaration of my configuration |
+| `flake.lock`                            | lock file that ensures reproducibility          |
+| `home-manager/home.nix`                 | actual configuration for my home directory      |
+| `home-manager/modules/cli-tools.nix`    | config for CLI apps                             |
+| `home-manager/modules/git.nix`          | config for git                                  |
+| `home-manager/modules/gui-app.nix`      | gui applications supported by NixGL             |
+| `home-manager/modules/i18n.nix`         | config for IME (fcitx5)                         |
+| `home-manager/modules/neovim.nix`       | config for Neovim                               |
+| `home-manager/modules/sway-related.nix` | sway-related packeges                           |
 
 
 ## update packeges
