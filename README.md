@@ -1,5 +1,22 @@
 # Nix
 
+## 🌳 Directory Structure 🌳
+
+The configuration files are organized as follows:
+
+| File/path                               | Description |
+|-----------------------------------------|-------------|
+| `flake.nix`                             |             |
+| `flake.lock`                            |             |
+| `home-manager/home.nix`                 |             |
+| `home-manager/modules/cli-tools.nix`    |             |
+| `home-manager/modules/git.nix`          |             |
+| `home-manager/modules/gui-app.nix`      |             |
+| `home-manager/modules/i18n.nix`         |             |
+| `home-manager/modules/neovim.nix`       |             |
+| `home-manager/modules/sway-related.nix` |             |
+
+
 ## update packeges
 
 ```bash
