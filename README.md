@@ -1,6 +1,12 @@
-# Nix
+# ❄️Nix ❄️
 
-## 🌳 Directory Structure 🌳
+This repository contains my personal configuration files for **Nix**.
+
+## 🛠️ Configuration Management
+
+## 🚀 Key Features
+
+### 🌳 Directory Structure 🌳
 
 The configuration files are organized as follows:
 
