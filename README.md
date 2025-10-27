@@ -51,28 +51,20 @@ The configuration files are organized as follows:
 | `home-manager/modules/neovim.nix`       | config for Neovim                               |
 | `home-manager/modules/sway-related.nix` | sway-related packeges                           |
 
+## 🧹 Maintenance Commands
 
-## update packeges
+### 🗑️ Cleaning Up Old Generations
 
-```bash
-$ nix flake update # update flake
-$ home-manager switch --flake . # in this repositroy
-```
-
-In the `sway` desktop environment, the following command installs packages related to `sway`.
-
-```bash
-$ HM_DESKTOP=sway home-manager switch --flake . --impure
-```
-
-## serach packeges
-
-```bash
-$ nix search nixpkgs <packege name>
-```
-
-## remove old files (old generations) in `/nix/store`
+Removes files from `/nix/store` that are no longer referenced by **old generations** (previous states of the system or home environment), freeing up disk space.
 
 ```bash
 $ nix-collect-garbage --delete-old
+```
+
+### 🔍 Package Search
+
+Search for available packages within the Nixpkgs repository.
+
+```bash
+$ nix search nixpkgs <package name>
 ```
