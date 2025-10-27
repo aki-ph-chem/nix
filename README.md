@@ -1,10 +1,39 @@
 # ❄️Nix ❄️
 
-This repository contains my personal configuration files for **Nix**.
+This repository contains my personal configuration files (Dotfiles) managed using **Nix** Flakes.
+
+## 🚀 Key Features
+
+The main features of this configuration are:
+
+  - **Full Reproducibility**: The environment can be **reliably reproduced** using `flake.lock`.
+  - **Declarative Configuration**: **Home Manager** is used to centrally manage **home directory** configurations across various operating systems (macOS, Linux, etc.).
+  - **Modularity**: The configuration is split into **Nix modules** based on functionality, improving maintainability and reusability.
+  - **Diverse Environment Support**:
+      - **CLI** tools
+      - Development environments like **Neovim**
+      - Desktop environments including **Sway**
+      - Support for **GUI applications** using **NixGL** (for non-NixOS environments)
 
 ## 🛠️ Configuration Management
 
-## 🚀 Key Features
+### 📥 Applying the Configuration
+
+The basic commands to apply this configuration. Execute these in the root directory of the repository.
+
+| Environment      | Command                                                  | Notes                                                                 |
+|:-----------------|:---------------------------------------------------------|:----------------------------------------------------------------------|
+| **Standard**     | `home-manager switch --flake .`                          | Applies CLI tools and general settings.                               |
+| **Sway Desktop** | `HM_DESKTOP=sway home-manager switch --flake . --impure` | Applies **Sway** and related packages (sets an environment variable). |
+
+### 🔄 Updating Packages
+
+Update the inputs (e.g., **Nixpkgs** and other Flakes) and reapply the configuration.
+
+```bash
+$ nix flake update            # Updates Flake dependencies (e.g., nixpkgs, home-manager) and rewrites flake.lock
+$ home-manager switch --flake . # Applies the updated configuration
+```
 
 ### 🌳 Directory Structure 🌳
 
