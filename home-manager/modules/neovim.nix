@@ -18,7 +18,7 @@ let
     url = "https://github.com/uasi/skk-emoji-jisyo/archive/refs/heads/master.tar.gz";
     sha256 = "0pg4cgc5qhal2g38wdrzfhpxxa2iabbrn09chhhkj258w2h2xw6b";
   };
-  skkEmojiDictPath = "${skkEmojiDict}/SKK-JISYO.emoji.utf8 ";
+  skkEmojiDictPath = "${skkEmojiDict}/SKK-JISYO.emoji.utf8";
 in
 {
 
