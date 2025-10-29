@@ -8,15 +8,26 @@ in
   xdg.desktopEntries."qpdfview.desktop" = {
     type = "Application";
     name = "qpdfview";
-    exec = "${pkgs.nixgl.nixGLMesa}/bin/nixGLMesa  ${pkgs.qpdfview}/bin/qpdfview";
-    icon = "${pkgs.qpdfview}/share/icons/hicolor/scalable/apps/qpdfview.svg";
-    terminal = false;
-    genericName = "tabbed document viewer";
     comment = "A tabbed document viewer using Qt and the Poppler library.";
+    genericName = "tabbed document viewer";
+    terminal = false;
     categories = [
       "Viewer"
       "Office"
     ];
+    mimeType = [
+      "application/pdf"
+      "application/x-pdf"
+      "text/pdf"
+      "text/x-pdf"
+      "image/pdf"
+      "image/x-pdf"
+      "application/postscript"
+      "image/vnd.djvu"
+      "image/x-djvu"
+    ];
+    exec = "${pkgs.nixgl.nixGLMesa}/bin/nixGLMesa  ${pkgs.qpdfview}/bin/qpdfview";
+    icon = "${pkgs.qpdfview}/share/icons/hicolor/scalable/apps/qpdfview.svg";
   };
 
   home.packages = [
