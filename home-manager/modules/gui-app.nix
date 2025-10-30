@@ -54,6 +54,16 @@ in
     exec = "${pkgs.nixgl.nixGLMesa}/bin/nixGLMesa  ${pkgs.zathura}/bin/zathura";
     icon = "${pkgs.zathura}/share/icons/hicolor/scalable/apps/org.pwmt.zathura.svg";
   };
+  xdg.desktopEntries."ristretto.desktop" = {
+    type = "Application";
+    name = "Ristretto Image Viewer";
+    comment = "Look at your images easily";
+    genericName = "Image Viewer";
+    terminal = false;
+    noDisplay = false;
+    exec = "${pkgs.nixgl.nixGLMesa}/bin/nixGLMesa  ${pkgs.xfce.ristretto}/bin/ristretto";
+    icon = "${pkgs.xfce.ristretto}/share/icons/hicolor/scalable/apps/org.xfce.ristretto.svg";
+  };
 
   home.packages = [
     pkgs.nixgl.nixGLMesa
