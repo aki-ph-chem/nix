@@ -11,6 +11,7 @@ let
   '';
 in
 {
+  # qpdfview
   xdg.desktopEntries."qpdfview.desktop" = {
     type = "Application";
     name = "qpdfview";
@@ -35,6 +36,8 @@ in
     exec = "${pkgs.nixgl.nixGLMesa}/bin/nixGLMesa  ${pkgs.qpdfview}/bin/qpdfview";
     icon = "${pkgs.qpdfview}/share/icons/hicolor/scalable/apps/qpdfview.svg";
   };
+
+  # zathura
   xdg.desktopEntries."zathura.desktop" = {
     type = "Application";
     name = "Zathura";
@@ -54,6 +57,8 @@ in
     exec = "${pkgs.nixgl.nixGLMesa}/bin/nixGLMesa  ${pkgs.zathura}/bin/zathura";
     icon = "${pkgs.zathura}/share/icons/hicolor/scalable/apps/org.pwmt.zathura.svg";
   };
+
+  # ristretto
   xdg.desktopEntries."ristretto.desktop" = {
     type = "Application";
     name = "Ristretto Image Viewer";
