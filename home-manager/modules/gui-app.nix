@@ -6,6 +6,9 @@ let
   zathuraWrapper = pkgs.writeShellScriptBin "zathura" ''
     exec ${pkgs.nixgl.nixGLMesa}/bin/nixGLMesa  ${pkgs.zathura}/bin/zathura "$@" 
   '';
+  ristrettoWrapper = pkgs.writeShellScriptBin "ristretto" ''
+    exec ${pkgs.nixgl.nixGLMesa}/bin/nixGLMesa  ${pkgs.xfce.ristretto}/bin/ristretto "$@" 
+  '';
 in
 {
   xdg.desktopEntries."qpdfview.desktop" = {
@@ -56,5 +59,6 @@ in
     pkgs.nixgl.nixGLMesa
     qpdfvieWrapper
     zathuraWrapper
+    ristrettoWrapper
   ];
 }
