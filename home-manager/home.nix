@@ -28,6 +28,7 @@ in
       [
         ./modules/i18n.nix
         ./modules/sway-related.nix
+        ./modules/gui-app.nix
       ]
     else
       [ ]
