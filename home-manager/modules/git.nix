@@ -3,10 +3,12 @@
 {
   programs.git = {
     enable = true;
-    userName = "aki";
-    userEmail = "aki@mymail.com";
-    extraConfig.init = {
-      defaultBranch = "main";
+    settings = {
+      user.name = "aki";
+      user.email = "aki@mymail.com";
+      extraConfig.init = {
+        defaultBranch = "main";
+      };
     };
   };
 }

@@ -6,7 +6,7 @@
       type = "fcitx5";
       fcitx5 = {
         addons = [
-          pkgs.fcitx5-configtool
+          pkgs.qt6Packages.fcitx5-configtool
           pkgs.fcitx5-mozc
           pkgs.libsForQt5.fcitx5-qt
           pkgs.fcitx5-gtk
