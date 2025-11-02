@@ -1,13 +1,14 @@
 { config, pkgs, ... }:
 let
+  nixGl = "${pkgs.nixgl.nixGLMesa}/bin/nixGLMesa";
   qpdfvieWrapper = pkgs.writeShellScriptBin "qpdfview" ''
-    exec ${pkgs.nixgl.nixGLMesa}/bin/nixGLMesa  ${pkgs.qpdfview}/bin/qpdfview "$@" 
+    exec ${nixGl} ${pkgs.qpdfview}/bin/qpdfview "$@" 
   '';
   zathuraWrapper = pkgs.writeShellScriptBin "zathura" ''
-    exec ${pkgs.nixgl.nixGLMesa}/bin/nixGLMesa  ${pkgs.zathura}/bin/zathura "$@" 
+    exec ${nixGl} ${pkgs.zathura}/bin/zathura "$@" 
   '';
   ristrettoWrapper = pkgs.writeShellScriptBin "ristretto" ''
-    exec ${pkgs.nixgl.nixGLMesa}/bin/nixGLMesa  ${pkgs.xfce.ristretto}/bin/ristretto "$@" 
+    exec ${nixGl} ${pkgs.xfce.ristretto}/bin/ristretto "$@" 
   '';
 in
 {
@@ -33,7 +34,7 @@ in
       "image/vnd.djvu"
       "image/x-djvu"
     ];
-    exec = "${pkgs.nixgl.nixGLMesa}/bin/nixGLMesa  ${pkgs.qpdfview}/bin/qpdfview";
+    exec = "${nixGl} ${pkgs.qpdfview}/bin/qpdfview";
     icon = "${pkgs.qpdfview}/share/icons/hicolor/scalable/apps/qpdfview.svg";
   };
 
@@ -54,7 +55,7 @@ in
       "application/epub+zip"
       "application/x-fictionbook"
     ];
-    exec = "${pkgs.nixgl.nixGLMesa}/bin/nixGLMesa  ${pkgs.zathura}/bin/zathura";
+    exec = "${nixGl} ${pkgs.zathura}/bin/zathura";
     icon = "${pkgs.zathura}/share/icons/hicolor/scalable/apps/org.pwmt.zathura.svg";
   };
 
@@ -66,7 +67,7 @@ in
     genericName = "Image Viewer";
     terminal = false;
     noDisplay = false;
-    exec = "${pkgs.nixgl.nixGLMesa}/bin/nixGLMesa  ${pkgs.xfce.ristretto}/bin/ristretto";
+    exec = "${nixGl} ${pkgs.xfce.ristretto}/bin/ristretto";
     icon = "${pkgs.xfce.ristretto}/share/icons/hicolor/scalable/apps/org.xfce.ristretto.svg";
   };
 
