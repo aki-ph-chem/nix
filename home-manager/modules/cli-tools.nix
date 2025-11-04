@@ -15,7 +15,6 @@
     pkgs.glab
     # languages tool
     pkgs.uv
-    pkgs.deno
     pkgs.shellcheck
     ## lux: package manager for Lua
     pkgs.lux-cli
