@@ -52,6 +52,8 @@ in
       # Language Servers
       pkgs.gopls
       pkgs.lua-language-server
+      ## for denops
+      pkgs.deno
       ## Language server for Nix Language
       pkgs.nil
       ## ty
