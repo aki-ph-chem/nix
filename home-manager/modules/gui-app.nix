@@ -10,6 +10,10 @@ let
   ristrettoWrapper = pkgs.writeShellScriptBin "ristretto" ''
     exec ${nixGl} ${pkgs.xfce.ristretto}/bin/ristretto "$@" 
   '';
+  # neovide
+  neovideWrapper = pkgs.writeShellScriptBin "neovide" ''
+    exec ${nixGl} ${pkgs.neovide}/bin/neovide "$@" 
+  '';
 in
 {
   # qpdfview
@@ -76,5 +80,6 @@ in
     qpdfvieWrapper
     zathuraWrapper
     ristrettoWrapper
+    neovideWrapper
   ];
 }
