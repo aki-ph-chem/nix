@@ -9,6 +9,7 @@
     pkgs.fd
     pkgs.ripgrep
     pkgs.bat
+    pkgs.yazi
     # git related packages
     pkgs.lazygit
     pkgs.gh
