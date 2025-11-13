@@ -22,6 +22,7 @@ in
     ./modules/neovim.nix
     ./modules/cli-tools.nix
     ./modules/git.nix
+    ./modules/neovide.nix
   ]
   ++ (
     if tracedIsSway then
