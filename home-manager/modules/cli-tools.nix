@@ -23,6 +23,8 @@
     pkgs.global
     ## for network
     pkgs.netcat-gnu
+    ## TUI feed reader
+    pkgs.bulletty
   ];
 
   programs.direnv = {
