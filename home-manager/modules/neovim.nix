@@ -24,10 +24,14 @@ let
 in
 {
 
-  home.file.".config/nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${nvimConfigPath}";
-    recursive = true;
-  };
+  home.file.".config/nvim" =
+    if builtins.pathExists "${nvimConfigPath}" then
+      {
+        source = config.lib.file.mkOutOfStoreSymlink "${nvimConfigPath}";
+        recursive = true;
+      }
+    else
+      builtins.error "Neovim config not found at ${nvimConfigPath}. Please clone the repository:\n aki-ph-chem/neovim-config.git ${nvimConfigPath}";
 
   home.packages = [
     pkgs.libskk
