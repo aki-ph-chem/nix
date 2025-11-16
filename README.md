@@ -36,7 +36,10 @@ $ home-manager switch --flake . # Applies the updated configuration (Standard)
 
 ### 🌳 Directory Structure 🌳
 
-The configuration files are organized as follows:
+The configuration files are organized as follows(Folded):
+
+<details>
+<summary>here</summary>
 
 | File/path                               | Description                                                                                            |
 |-----------------------------------------|--------------------------------------------------------------------------------------------------------|
@@ -50,6 +53,8 @@ The configuration files are organized as follows:
 | `home-manager/modules/i18n.nix`         | Configuration related to **Internationalization** (I18n) and **IME** (e.g., `fcitx5`).                 |
 | `home-manager/modules/neovim.nix`       | **Neovim** configuration, including LSP,formatter, ..etc (**NOT** include plugins).                    |
 | `home-manager/modules/sway-related.nix` | Configuration for the **Sway** window manager related packages (e.g., `waybar`, `rofi`).               |
+
+</details>
 
 ## 🧹 Maintenance Commands
 
