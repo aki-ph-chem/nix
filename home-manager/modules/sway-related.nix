@@ -29,5 +29,10 @@
       source = "${dotfiles}/rofi";
       recursive = true;
     };
+    # kanshi
+    ".config/kanshi" = {
+      source = "${dotfiles}/sway/kanshi";
+      recursive = true;
+    };
   };
 }
