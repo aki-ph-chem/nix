@@ -36,7 +36,7 @@ in
         recursive = true;
       }
     else
-      builtins.error errorMessageNvim;
+      builtins.abort errorMessageNvim;
 
   home.packages = [
     pkgs.libskk
