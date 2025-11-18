@@ -19,5 +19,10 @@
     ".config/sway/config" = {
       source = "${dotfiles}/sway/config";
     };
+    # waybar
+    ".config/waybar" = {
+      source = "${dotfiles}/sway/waybar";
+      recursive = true;
+    };
   };
 }
