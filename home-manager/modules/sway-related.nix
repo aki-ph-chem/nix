@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  dotfiles,
+  ...
+}:
 
 {
   home.packages = [
@@ -8,4 +13,11 @@
     pkgs.rofi
     pkgs.kanshi
   ];
+
+  home.file = {
+    # sway
+    ".config/sway/config" = {
+      source = "${dotfiles}/sway/config";
+    };
+  };
 }
