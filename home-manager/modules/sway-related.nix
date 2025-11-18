@@ -24,5 +24,10 @@
       source = "${dotfiles}/sway/waybar";
       recursive = true;
     };
+    # rofi
+    ".config/rofi" = {
+      source = "${dotfiles}/rofi";
+      recursive = true;
+    };
   };
 }
