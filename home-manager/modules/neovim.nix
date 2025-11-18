@@ -8,7 +8,8 @@ let
   nvimConfigPath = "${config.home.homeDirectory}/neovim-config/nvim";
   errorMessageNvim = ''
     Neovim config not found at ${nvimConfigPath}. 
-    Please clone the repository: aki-ph-chem/neovim-config.git ${nvimConfigPath}
+    Please clone the repository aki-ph-chem/neovim-config from github.com as below(https):
+    git clone https://github.com/aki-ph-chem/neovim-config.git ${config.home.homeDirectory}/neovim-config
   '';
   libSkk = pkgs.libskk;
   # skk dict
