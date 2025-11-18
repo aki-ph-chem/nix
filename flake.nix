@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixgl.url = "github:nix-community/nixGL";
+    # GitHub: aki-ph-chem/dotfiles
+    dotfiles = {
+      url = "github:aki-ph-chem/dotfiles/main";
+      flake = false;
+    };
   };
 
   outputs =
@@ -16,6 +21,7 @@
       nixpkgs,
       home-manager,
       nixgl,
+      dotfiles,
       ...
     }:
     let
@@ -35,6 +41,10 @@
           ./home-manager/home.nix
           { nixpkgs.overlays = overlays; }
         ];
+
+        extraSpecialArgs = {
+          inherit dotfiles;
+        };
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
