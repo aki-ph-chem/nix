@@ -27,6 +27,7 @@ jobs:
 
       - uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
         with:
+          base: main
           title: "update(flake): update nix flake ${{ steps.meta.outputs.date }}"
           commit-message: "update(flake): update nix flake at ${{ steps.meta.outputs.date }}"
           branch: "update-nix-flake-at-${{ steps.meta.outputs.date }}"
