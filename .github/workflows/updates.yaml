@@ -1,0 +1,30 @@
+name: updates
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-lockfile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+
+      - name: Update flake.lock
+        uses: cachix/install-nix-action@0b0e072294b088b73964f1d72dfdac0951439dbd # v31.8.4
+        run: nix flake update
+
+      - name: Create PR 
+        id: meta
+        run: |
+          {
+            echo "date=$(TZ=Asia/Tokyo date +%Y-%m-%d-%H-%M)"
+          } >> $GITHUB_OUTPUT
+
+      - uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        with:
+          title: "update(flake): update nix flake ${{ steps.meta.outputs.date }}"
+          commit-message: "update(flake): update nix flake at ${{ steps.meta.outputs.date }}"
+          branch: "update-nix-flake-at-${{ steps.meta.outputs.date }}"
+          add-paths: |
+            flake.lock
