@@ -1,5 +1,22 @@
 {
   "nodes": {
+    "dotfiles": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762932130,
+        "narHash": "sha256-vP/QKOVS2WKrf6M6sjdlmpz1/Eo9HsIZOW0Tr/0Zywg=",
+        "owner": "aki-ph-chem",
+        "repo": "dotfiles",
+        "rev": "e88773e0c9befaa84aac45274ac9516b243ebbd4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aki-ph-chem",
+        "ref": "main",
+        "repo": "dotfiles",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -90,6 +107,7 @@
     },
     "root": {
       "inputs": {
+        "dotfiles": "dotfiles",
         "home-manager": "home-manager",
         "nixgl": "nixgl",
         "nixpkgs": "nixpkgs_2"

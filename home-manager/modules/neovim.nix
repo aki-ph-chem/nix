@@ -6,6 +6,11 @@
 
 let
   nvimConfigPath = "${config.home.homeDirectory}/neovim-config/nvim";
+  errorMessageNvim = ''
+    Neovim config not found at ${nvimConfigPath}. 
+    Please clone the repository aki-ph-chem/neovim-config from github.com as below(https):
+    git clone https://github.com/aki-ph-chem/neovim-config.git ${config.home.homeDirectory}/neovim-config
+  '';
   libSkk = pkgs.libskk;
   # skk dict
   skkDictPath = "${libSkk}/share/skk/SKK-JISYO.L";
@@ -24,10 +29,14 @@ let
 in
 {
 
-  home.file.".config/nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${nvimConfigPath}";
-    recursive = true;
-  };
+  home.file.".config/nvim" =
+    if builtins.pathExists "${nvimConfigPath}" then
+      {
+        source = config.lib.file.mkOutOfStoreSymlink "${nvimConfigPath}";
+        recursive = true;
+      }
+    else
+      builtins.abort errorMessageNvim;
 
   home.packages = [
     pkgs.libskk
