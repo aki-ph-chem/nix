@@ -15,9 +15,44 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+      - name: Checkout
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
       - uses: cachix/install-nix-action@0b0e072294b088b73964f1d72dfdac0951439dbd # v31.8.4
-      - run: nix flake update
+
+      - name: Initialize log file
+        run: |
+          mkdir ./ci-logs/
+          TZ=Asia/Tokyo date > ./ci-logs/started_at.txt
+          echo '' > ./ci-logs/update.md
+
+      - name: Update Nix Flake
+        run: |
+          {
+            echo '### nix flake update'
+            echo ''
+            TZ=Asia/Tokyo date
+            echo ''
+            echo '```'
+          } >> ./ci-logs/update.md
+          nix flake update |& tee -a ./ci-logs/update.md
+          echo '```' >> ./ci-logs/update.md
+
+      - name: Set PR body output
+        id: pr-body-output
+        run: |
+          {
+            echo 'body<<EOF'
+            echo '## Automated update'
+            echo ''
+            echo -n 'started at:  '
+            cat ./ci-logs/started_at.txt
+            echo -n 'finished at: '
+            TZ=Asia/Tokyo date
+            echo ''
+            cat ./ci-logs/update.md
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+          rm -rf ./ci-logs/
 
       - name: Create PR 
         id: meta
@@ -30,6 +65,7 @@ jobs:
         with:
           base: main
           title: "update(flake): update nix flake ${{ steps.meta.outputs.date }}"
+          body: ${{ steps.pr-body-output.outputs.body }}
           commit-message: "update(flake): update nix flake at ${{ steps.meta.outputs.date }}"
           branch: "update-nix-flake-at-${{ steps.meta.outputs.date }}"
           add-paths: |
