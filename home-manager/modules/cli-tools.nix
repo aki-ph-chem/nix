@@ -10,6 +10,7 @@
     pkgs.ripgrep
     pkgs.bat
     pkgs.yazi
+    pkgs.pinact
     # git related packages
     pkgs.lazygit
     pkgs.gh
