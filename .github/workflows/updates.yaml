@@ -3,8 +3,8 @@ name: updates
 on:
   workflow_dispatch:
   schedule:
-    # Runs daily at UTC 15:00 (JST 0:00)
-    - cron: '0 15 * * *'
+    # Runs Fridy UTC 13:00 (JST 22:00)
+    - cron: '0 13 * * FRI'
 
 jobs:
   update-lockfile:
