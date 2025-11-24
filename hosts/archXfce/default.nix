@@ -26,10 +26,10 @@ home-manager.lib.homeManagerConfiguration {
       home.stateVersion = "25.05";
 
       imports = [
-        ../../home-manager/modules/neovim.nix
-        ../../home-manager/modules/cli-tools.nix
-        ../../home-manager/modules/git.nix
-        ../../home-manager/modules/neovide.nix
+        ../../modules/neovim.nix
+        ../../modules/cli-tools.nix
+        ../../modules/git.nix
+        ../../modules/neovide.nix
       ];
 
       home.packages = [
