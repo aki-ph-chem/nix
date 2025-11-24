@@ -31,6 +31,11 @@
         archSway = import ./hosts/archSway {
           inherit inputs;
         };
+
+        # home-manager switch --flake .#archXfce --impure
+        archXfce = import ./hosts/archXfce {
+          inherit inputs;
+        };
       };
     };
 }
