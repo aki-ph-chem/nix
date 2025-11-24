@@ -22,33 +22,14 @@
       home-manager,
       nixgl,
       dotfiles,
+      self,
       ...
-    }:
-    let
-      stdenv.hostPlatform.system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${stdenv.hostPlatform.system};
-      overlays = [
-        nixgl.overlay
-      ];
-    in
+    }@inputs:
     {
       homeConfigurations = {
-        aki = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-
-          # Specify your home configuration modules here, for example,
-          # the path to your home.nix.
-          modules = [
-            ./home-manager/home.nix
-            { nixpkgs.overlays = overlays; }
-          ];
-
-          extraSpecialArgs = {
-            inherit dotfiles;
-          };
-
-          # Optionally use extraSpecialArgs
-          # to pass through arguments to home.nix
+        # home-manager switch --flake .#archSway --impure
+        archSway = import ./hosts/archSway {
+          inherit inputs;
         };
       };
     };
