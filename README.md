@@ -20,18 +20,30 @@ The main features of this configuration are:
 
 The basic commands to apply this configuration. Execute these in the root directory of the repository.
 
-| Environment      | Command                                                  | Notes                                                                                  |
-|:-----------------|:---------------------------------------------------------|:---------------------------------------------------------------------------------------|
-| **Standard**     | `home-manager switch --flake .`                          | Applies CLI tools and general settings.                                                |
-| **Sway Desktop** | `HM_DESKTOP=sway home-manager switch --flake . --impure` | Applies **Sway** related packages and gui app packages (sets an environment variable). |
+| machine name | Notes                                                                                  |
+|:-------------|:---------------------------------------------------------------------------------------|
+| **archXfce** | Applies CLI tools and general settings.                                                |
+| **archSway** | Applies **Sway** related packages and gui app packages (sets an environment variable). |
+
+- for Arch Linux + sway
+
+```bash
+home-manager switch --flake .#archSway --impure
+```
+
+- for Arch Linux + Xfce 
+
+```bash
+home-manager switch --flake .#archXfce --impure
+```
 
 ### 🔄 Updating Packages
 
 Update the inputs (e.g., **Nixpkgs** and other Flakes) and reapply the configuration.
 
 ```bash
-$ nix flake update            # Updates Flake dependencies (e.g., nixpkgs, home-manager) and rewrites flake.lock
-$ home-manager switch --flake . # Applies the updated configuration (Standard)
+nix flake update            # Updates Flake dependencies (e.g., nixpkgs, home-manager) and rewrites flake.lock
+home-manager switch --flake .#<machine name> --impure # Applies the updated configuration (Standard)
 ```
 
 ### 🌳 Directory Structure 🌳
@@ -45,7 +57,9 @@ The configuration files are organized as follows(Folded):
 |-----------------------------------------|--------------------------------------------------------------------------------------------------------|
 | `flake.nix`                             | The Entry point and declaration of my configuration. The Home Manager instance is also declared here.  |
 | `flake.lock`                            | The lock file that  guarantees the **reproducibility** of the Flake.                                   |
-| `home-manager/home.nix`                 | The **main Home Manager configuration file**                                                           |
+| `hosts/archSway`                        | config for Arch Linux + Sway                                                                           |
+| `hosts/archXfce`                        | config for Arch Linux + Xfce                                                                           |
+| `home-manager/home.nix`                 | The main Home Manager configuration file (**NOT used now**)                                            |
 | `home-manager/modules/`                 | Directory for **Nix modules** split by functionality.                                                  |
 | `home-manager/modules/cli-tools.nix`    | Configuration and installation for **CLI applications**                                                |
 | `home-manager/modules/git.nix`          | **Git** configuration.                                                                                 |
