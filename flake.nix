@@ -32,22 +32,24 @@
       ];
     in
     {
-      homeConfigurations."aki" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+      homeConfigurations = {
+        aki = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [
-          ./home-manager/home.nix
-          { nixpkgs.overlays = overlays; }
-        ];
+          # Specify your home configuration modules here, for example,
+          # the path to your home.nix.
+          modules = [
+            ./home-manager/home.nix
+            { nixpkgs.overlays = overlays; }
+          ];
 
-        extraSpecialArgs = {
-          inherit dotfiles;
+          extraSpecialArgs = {
+            inherit dotfiles;
+          };
+
+          # Optionally use extraSpecialArgs
+          # to pass through arguments to home.nix
         };
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
       };
     };
 }
