@@ -20,10 +20,11 @@ The main features of this configuration are:
 
 The basic commands to apply this configuration. Execute these in the root directory of the repository.
 
-| machine name | Notes                                                                                  |
-|:-------------|:---------------------------------------------------------------------------------------|
-| **archXfce** | Applies CLI tools and general settings.                                                |
-| **archSway** | Applies **Sway** related packages and gui app packages (sets an environment variable). |
+| machine name         | Notes                                                                                  |
+|:---------------------|:---------------------------------------------------------------------------------------|
+| **archXfce**         | Applies CLI tools and general settings.                                                |
+| **archSway**         | Applies **Sway** related packages and gui app packages (sets an environment variable). |
+| **nixosSwayDesktop** | config for NixOS + Sway                                                                |
 
 - for Arch Linux + sway
 
@@ -35,6 +36,12 @@ home-manager switch --flake .#archSway --impure
 
 ```bash
 home-manager switch --flake .#archXfce --impure
+```
+
+- for NixOS + sway
+
+```bash
+sudo nixos-rebuild switch --flake .#nixosSwayDesktop --impure
 ```
 
 ### 🔄 Updating Packages
