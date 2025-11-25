@@ -9,12 +9,15 @@ let
     nixpkgs
     dotfiles
     config
+    self
     ;
   stdenv.hostPlatform.system = "x86_64-linux";
   pkgs = nixpkgs.legacyPackages.${stdenv.hostPlatform.system};
   overlays = [
     nixgl.overlay
   ];
+  # flakeRoot is path which flake.nix exists
+  flakeRoot = self.outPath;
 in
 home-manager.lib.homeManagerConfiguration {
   inherit pkgs;
@@ -26,10 +29,10 @@ home-manager.lib.homeManagerConfiguration {
       home.stateVersion = "25.05";
 
       imports = [
-        ../../modules/neovim.nix
-        ../../modules/cli-tools.nix
-        ../../modules/git.nix
-        ../../modules/neovide.nix
+        "${flakeRoot}/modules/neovim.nix"
+        "${flakeRoot}/modules/cli-tools.nix"
+        "${flakeRoot}/modules/git.nix"
+        "${flakeRoot}/modules/neovide.nix"
       ];
 
       home.packages = [
