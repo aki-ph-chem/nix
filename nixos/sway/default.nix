@@ -13,6 +13,7 @@
     xwayland
     pkgs.waybar
     pkgs.rofi
+    wlogout
     ## other
     brightnessctl
     clipman
