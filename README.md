@@ -53,19 +53,20 @@ The configuration files are organized as follows(Folded):
 <details>
 <summary>here</summary>
 
-| File/path                  | Description                                                                                            |
-|----------------------------|--------------------------------------------------------------------------------------------------------|
-| `flake.nix`                | The Entry point and declaration of my configuration. The Home Manager instance is also declared here.  |
-| `flake.lock`               | The lock file that  guarantees the **reproducibility** of the Flake.                                   |
-| `hosts/archSway`           | config for Arch Linux + Sway                                                                           |
-| `hosts/archXfce`           | config for Arch Linux + Xfce                                                                           |
-| `modules/`                 | Directory for **Nix modules** split by functionality.                                                  |
-| `modules/cli-tools.nix`    | Configuration and installation for **CLI applications**                                                |
-| `modules/git.nix`          | **Git** configuration.                                                                                 |
-| `modules/gui-app.nix`      | Installation of **GUI applications**. Includes settings for using **NixGL** in non-NixOS environments. |
-| `modules/i18n.nix`         | Configuration related to **Internationalization** (I18n) and **IME** (e.g., `fcitx5`).                 |
-| `modules/neovim.nix`       | **Neovim** configuration, including LSP,formatter, ..etc (**NOT** include plugins).                    |
-| `modules/sway-related.nix` | Configuration for the **Sway** window manager related packages (e.g., `waybar`, `rofi`).               |
+| File/path                   | Description                                                                                                      |
+|-----------------------------|------------------------------------------------------------------------------------------------------------------|
+| `flake.nix`                 | The Entry point and declaration of my configuration. The Home Manager instance is also declared here.            |
+| `flake.lock`                | The lock file that  guarantees the **reproducibility** of the Flake.                                             |
+| `hosts/archSway`            | config for Arch Linux + Sway                                                                                     |
+| `hosts/archXfce`            | config for Arch Linux + Xfce                                                                                     |
+| `modules/`                  | Directory for **Nix modules** split by functionality.                                                            |
+| `modules/cli-tools.nix`     | Configuration and installation for **CLI applications**                                                          |
+| `modules/git.nix`           | **Git** configuration.                                                                                           |
+| `modules/gui-app-nixgl.nix` | Installation of **GUI applications**. Includes settings for using **NixGL** in non-NixOS environments.           |
+| `modules/i18n.nix`          | Configuration related to **Internationalization** (I18n) and **IME** (e.g., `fcitx5`).                           |
+| `modules/neovim.nix`        | **Neovim** configuration, including LSP,formatter, ..etc (**NOT** include plugins).                              |
+| `modules/neovide-nixgl.nix` | **Neovide**(extra GUI for neovim) configuration Includes settings for using **NixGL** in non-NixOS environments. |
+| `modules/sway-related.nix`  | Configuration for the **Sway** window manager related packages (e.g., `waybar`, `rofi`).                         |
 
 </details>
 
