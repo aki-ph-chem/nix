@@ -39,15 +39,13 @@ nixpkgs.lib.nixosSystem {
               pkgs.chromium
               pkgs.wezterm
               pkgs.tree
-              ## sway-related
-              pkgs.waybar
-              pkgs.rofi
             ];
           };
         }
       ]
       ++ [
         (import "${flakeRoot}/nixos/fonts" { inherit pkgs; })
+        (import "${flakeRoot}/nixos/sway" { inherit pkgs userName; })
       ];
 
       # Use the systemd-boot EFI boot loader.
@@ -101,14 +99,6 @@ nixpkgs.lib.nixosSystem {
           "networkmanager"
         ]; # Enable ‘sudo’ for the user.
         packages = with pkgs; [
-          ## sway-related
-          swayidle
-          swaybg
-          swaylock-effects
-          xwayland
-          ## other
-          brightnessctl
-          clipman
           gnupg
           helvum
           pavucontrol
@@ -116,11 +106,6 @@ nixpkgs.lib.nixosSystem {
       };
       # uninstall nano
       programs.nano.enable = false;
-
-      programs.sway = {
-        enable = true;
-        wrapperFeatures.gtk = true;
-      };
 
       # OpenSSH
       # Enable the OpenSSH daemon.
