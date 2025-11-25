@@ -32,7 +32,7 @@ home-manager.lib.homeManagerConfiguration {
         "${flakeRoot}/modules/neovim.nix"
         "${flakeRoot}/modules/cli-tools.nix"
         "${flakeRoot}/modules/git.nix"
-        "${flakeRoot}/modules/neovide.nix"
+        "${flakeRoot}/modules/neovide-nixgl.nix"
       ];
 
       home.packages = [
