@@ -14,6 +14,10 @@
       url = "github:aki-ph-chem/dotfiles/main";
       flake = false;
     };
+    dotfilesNixos = {
+      url = "github:aki-ph-chem/dotfiles/nixos";
+      flake = false;
+    };
   };
 
   outputs =
@@ -22,6 +26,7 @@
       home-manager,
       nixgl,
       dotfiles,
+      dotfilesNixos,
       self,
       ...
     }@inputs:

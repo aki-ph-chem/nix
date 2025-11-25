@@ -17,6 +17,23 @@
         "type": "github"
       }
     },
+    "dotfilesNixos": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1763801944,
+        "narHash": "sha256-GjlvMu7+NuJQoeq7jMmryl/pysskdqh+bzhrOKfrx28=",
+        "owner": "aki-ph-chem",
+        "repo": "dotfiles",
+        "rev": "232680feba249a0e3dca9ec31c1f337784bb3df8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aki-ph-chem",
+        "ref": "nixos",
+        "repo": "dotfiles",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -108,6 +125,7 @@
     "root": {
       "inputs": {
         "dotfiles": "dotfiles",
+        "dotfilesNixos": "dotfilesNixos",
         "home-manager": "home-manager",
         "nixgl": "nixgl",
         "nixpkgs": "nixpkgs_2"
