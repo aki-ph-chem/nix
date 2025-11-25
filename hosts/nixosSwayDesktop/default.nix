@@ -45,6 +45,9 @@ nixpkgs.lib.nixosSystem {
             ];
           };
         }
+      ]
+      ++ [
+        (import "${flakeRoot}/nixos/fonts" { inherit pkgs; })
       ];
 
       # Use the systemd-boot EFI boot loader.
@@ -68,34 +71,6 @@ nixpkgs.lib.nixosSystem {
         font = "Lat2-Terminus16";
         keyMap = "us";
         useXkbConfig = false; # use xkb.options in tty.
-      };
-
-      # fonts
-      fonts = {
-        fonts = with pkgs; [
-          noto-fonts-cjk-serif
-          noto-fonts-cjk-sans
-          noto-fonts-color-emoji
-          #nerdfonts
-        ];
-        fontDir.enable = true;
-        fontconfig = {
-          defaultFonts = {
-            serif = [
-              "Noto Serif CJK JP"
-              "Noto Color Emoji"
-            ];
-            sansSerif = [
-              "Noto Sans CJK JP"
-              "Noto Color Emoji"
-            ];
-            monospace = [
-              "JetBrainsMono Nerd Font"
-              "Noto Color Emoji"
-            ];
-            emoji = [ "Noto Color Emoji" ];
-          };
-        };
       };
 
       environment.systemPackages = with pkgs; [
