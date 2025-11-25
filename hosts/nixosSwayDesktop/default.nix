@@ -7,6 +7,7 @@ let
     nixpkgs
     home-manager
     self
+    dotfilesNixos
     ;
   stdenv.hostPlatform.system = "x86_64-linux";
   pkgs = nixpkgs.legacyPackages.${stdenv.hostPlatform.system};
@@ -41,6 +42,29 @@ nixpkgs.lib.nixosSystem {
               pkgs.wezterm
               pkgs.tree
             ];
+
+            home.file = {
+              # sway
+              ".config/sway/config" = {
+                source = "${dotfilesNixos}/sway/config";
+              };
+              # waybar
+              ".config/waybar" = {
+                source = "${dotfilesNixos}/sway/waybar";
+                recursive = true;
+              };
+              # rofi
+              ".config/rofi" = {
+                source = "${dotfilesNixos}/rofi";
+                recursive = true;
+              };
+              # wlogout
+              ".config/wlogout" = {
+                source = "${dotfilesNixos}/wlogout";
+                recursive = true;
+              };
+            };
+
           };
         }
       ]

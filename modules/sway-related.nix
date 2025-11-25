@@ -34,5 +34,10 @@
       source = "${dotfiles}/sway/kanshi";
       recursive = true;
     };
+    # wlogout
+    ".config/wlogout" = {
+      source = "${dotfiles}/wlogout";
+      recursive = true;
+    };
   };
 }
