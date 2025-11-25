@@ -51,12 +51,9 @@ nixpkgs.lib.nixosSystem {
       # Use the systemd-boot EFI boot loader.
       boot.loader.systemd-boot.enable = true;
       boot.loader.efi.canTouchEfiVariables = true;
-
-      # Use latest kernel.
-      boot.kernelPackages = pkgs.linuxPackages_latest;
+      boot.kernelPackages = pkgs.linuxPackages_latest; # Use latest kernel.
 
       networking.hostName = "nixos"; # Define your hostname.
-
       # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
       networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
@@ -72,14 +69,12 @@ nixpkgs.lib.nixosSystem {
       };
 
       environment.systemPackages = with pkgs; [
-        vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+        vim
         wget
         fastfetch
       ];
 
-      # Enable sound.
-      # services.pulseaudio.enable = true;
-      # use pipewire
+      # Enable sound by pipewire
       security.rtkit.enable = true;
       services.pipewire = {
         enable = true;
