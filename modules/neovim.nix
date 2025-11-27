@@ -60,17 +60,19 @@ in
     extraPackages = [
       # Language Servers
       pkgs.gopls
+      ## lua-language-server
       pkgs.lua-language-server
-      ## for denops
-      pkgs.deno
       ## Language server for Nix Language
       pkgs.nil
-      ## ty
+      ## ty(Language server & type checker for Python)
       pkgs.ty
       ## Language server for Tex(LaTex)
       pkgs.texlab
       ## Language server for Typst
       pkgs.tinymist
+      ## Language server for Markdown
+      pkgs.markdown-oxide
+
       # fromatter
       ## emf-langserver
       pkgs.efm-langserver
@@ -80,11 +82,12 @@ in
       pkgs.jq
       ## fomatter for Nix Language
       pkgs.nixfmt-rfc-style
-      ## Language server for Markdown
-      pkgs.markdown-oxide
+
       # others
       ## tree-sitter
       pkgs.tree-sitter
+      ## for denops
+      pkgs.deno
     ];
   };
 }
