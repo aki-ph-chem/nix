@@ -49,8 +49,10 @@ sudo nixos-rebuild switch --flake .#nixosSwayDesktop --impure
 Update the inputs (e.g., **Nixpkgs** and other Flakes) and reapply the configuration.
 
 ```bash
-nix flake update            # Updates Flake dependencies (e.g., nixpkgs, home-manager) and rewrites flake.lock
+nix flake update            # Updates Flake dependencies (all inputs) (e.g., nixpkgs, home-manager) and rewrites flake.lock
+nix flake update <input a> <input b> ... # Updates specific inputs
 home-manager switch --flake .#<machine name> --impure # Applies the updated configuration (Standard)
+sudo nixos-rebuild switch --flake .#<machine name> --impure # Applies the updated configuration (for NixOS)
 ```
 
 ### 🌳 Directory Structure 🌳
@@ -66,6 +68,7 @@ The configuration files are organized as follows(Folded):
 | `flake.lock`                | The lock file that  guarantees the **reproducibility** of the Flake.                                             |
 | `hosts/archSway`            | config for Arch Linux + Sway                                                                                     |
 | `hosts/archXfce`            | config for Arch Linux + Xfce                                                                                     |
+| `hosts/nixosSwayDesktop`    | config for NixOS + Sway                                                                                          |
 | `modules/`                  | Directory for **Nix modules** split by functionality.                                                            |
 | `modules/cli-tools.nix`     | Configuration and installation for **CLI applications**                                                          |
 | `modules/git.nix`           | **Git** configuration.                                                                                           |
@@ -74,6 +77,8 @@ The configuration files are organized as follows(Folded):
 | `modules/neovim.nix`        | **Neovim** configuration, including LSP,formatter, ..etc (**NOT** include plugins).                              |
 | `modules/neovide-nixgl.nix` | **Neovide**(extra GUI for neovim) configuration Includes settings for using **NixGL** in non-NixOS environments. |
 | `modules/sway-related.nix`  | Configuration for the **Sway** window manager related packages (e.g., `waybar`, `rofi`).                         |
+| `nixos`                     | Configurations for the **NixOS**                                                                                 |
+
 
 </details>
 
