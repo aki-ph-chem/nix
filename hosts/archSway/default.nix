@@ -37,6 +37,7 @@ home-manager.lib.homeManagerConfiguration {
         "${flakeRoot}/modules/sway-related.nix"
         "${flakeRoot}/modules/gui-app-nixgl.nix"
         "${flakeRoot}/modules/nerd-fonts.nix"
+        "${flakeRoot}/modules/shell.nix"
       ];
 
       home.packages = [

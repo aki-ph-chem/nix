@@ -37,6 +37,7 @@ nixpkgs.lib.nixosSystem {
               "${flakeRoot}/modules/git.nix"
               "${flakeRoot}/modules/i18n.nix"
               "${flakeRoot}/modules/nerd-fonts.nix"
+              "${flakeRoot}/modules/shell.nix"
             ];
             home.packages = [
               pkgs.firefox
