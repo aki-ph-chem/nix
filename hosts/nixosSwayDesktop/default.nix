@@ -20,8 +20,10 @@ nixpkgs.lib.nixosSystem {
 
   modules = [
     {
-
       imports = [
+        (import "${flakeRoot}/nixos/fonts" { inherit pkgs; })
+        (import "${flakeRoot}/nixos/sway" { inherit pkgs userName; })
+        (import "${flakeRoot}/nixos/sound" { inherit pkgs userName; })
         # Include the results of the hardware scan.
         ./hardware-configuration.nix
         home-manager.nixosModules.home-manager
@@ -64,14 +66,8 @@ nixpkgs.lib.nixosSystem {
                 recursive = true;
               };
             };
-
           };
         }
-      ]
-      ++ [
-        (import "${flakeRoot}/nixos/fonts" { inherit pkgs; })
-        (import "${flakeRoot}/nixos/sway" { inherit pkgs userName; })
-        (import "${flakeRoot}/nixos/sound" { inherit pkgs userName; })
       ];
 
       # Use the systemd-boot EFI boot loader.
