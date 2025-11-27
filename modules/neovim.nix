@@ -73,6 +73,10 @@ in
       pkgs.tinymist
       ## Language server for Markdown
       pkgs.markdown-oxide
+      ## CMake Language Servers
+      pkgs.cmake-language-server
+      ## Language Servers for Python
+      pkgs.pyright
 
       # fromatter
       ## emf-langserver
@@ -83,6 +87,8 @@ in
       pkgs.jq
       ## fomatter for Nix Language
       pkgs.nixfmt-rfc-style
+      ## fromatter for Python
+      pkgs.ruff
 
       # others
       ## tree-sitter
