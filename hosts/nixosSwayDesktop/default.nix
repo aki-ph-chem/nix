@@ -71,6 +71,7 @@ nixpkgs.lib.nixosSystem {
       ++ [
         (import "${flakeRoot}/nixos/fonts" { inherit pkgs; })
         (import "${flakeRoot}/nixos/sway" { inherit pkgs userName; })
+        (import "${flakeRoot}/nixos/sound" { inherit pkgs userName; })
       ];
 
       # Use the systemd-boot EFI boot loader.
@@ -99,15 +100,6 @@ nixpkgs.lib.nixosSystem {
         fastfetch
       ];
 
-      # Enable sound by pipewire
-      security.rtkit.enable = true;
-      services.pipewire = {
-        enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
-      };
-
       # Enable touchpad support (enabled default in most desktopManager).
       # services.libinput.enable = true;
 
@@ -120,8 +112,6 @@ nixpkgs.lib.nixosSystem {
         ]; # Enable ‘sudo’ for the user.
         packages = with pkgs; [
           gnupg
-          helvum
-          pavucontrol
         ];
       };
       # uninstall nano
