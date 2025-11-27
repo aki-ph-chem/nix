@@ -44,6 +44,7 @@ in
 
   programs.neovim = {
     enable = true;
+    viAlias = true;
 
     extraWrapperArgs = [
       "--set"
