@@ -77,6 +77,10 @@ in
       pkgs.cmake-language-server
       ## Language Servers for Python
       pkgs.pyright
+      ## Language server for TypeScript & JavaScript
+      pkgs.typescript-language-server
+      ## HTML/CSS/JSON/ESLint language servers extracted from vscode.
+      pkgs.vscode-langservers-extracted
 
       # fromatter
       ## emf-langserver
