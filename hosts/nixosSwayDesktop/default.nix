@@ -24,6 +24,7 @@ nixpkgs.lib.nixosSystem {
         (import "${flakeRoot}/nixos/fonts" { inherit pkgs; })
         (import "${flakeRoot}/nixos/sway" { inherit pkgs userName; })
         (import "${flakeRoot}/nixos/sound" { inherit pkgs userName; })
+        (import "${flakeRoot}/nixos/gpg" { inherit pkgs userName; })
         # Include the results of the hardware scan.
         ./hardware-configuration.nix
         home-manager.nixosModules.home-manager
@@ -108,7 +109,6 @@ nixpkgs.lib.nixosSystem {
           "networkmanager"
         ]; # Enable ‘sudo’ for the user.
         packages = with pkgs; [
-          gnupg
         ];
       };
       # uninstall nano
@@ -143,13 +143,6 @@ nixpkgs.lib.nixosSystem {
       # flatpak
       services.flatpak.enable = true;
       xdg.portal.enable = true;
-
-      # for smart card like Yubikey
-      services.pcscd.enable = true;
-      programs.gnupg.agent = {
-        enable = true;
-        enableExtraSocket = true;
-      };
 
       system.stateVersion = "25.05"; # Did you read the comment?
     }
