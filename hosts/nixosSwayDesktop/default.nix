@@ -25,6 +25,7 @@ nixpkgs.lib.nixosSystem {
         (import "${flakeRoot}/nixos/sway" { inherit pkgs userName; })
         (import "${flakeRoot}/nixos/sound" { inherit pkgs userName; })
         (import "${flakeRoot}/nixos/gpg" { inherit pkgs userName; })
+        (import "${flakeRoot}/nixos/polkit" { inherit pkgs; })
         # Include the results of the hardware scan.
         ./hardware-configuration.nix
         home-manager.nixosModules.home-manager
