@@ -23,5 +23,6 @@
     ## sway-related
     swaylock-effects
     wlogout
+    waypaper
   ];
 }
