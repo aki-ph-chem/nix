@@ -3,11 +3,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1764518505,
-        "narHash": "sha256-PEW+RAnHDmq19XUEbSVH6Qgk9IEpxUXC5+9bnRxxojY=",
+        "lastModified": 1764519229,
+        "narHash": "sha256-2wyNVV3o8ujoxoMYLkSuIhVMZlgNk9fjJRv4EqcwvZQ=",
         "owner": "aki-ph-chem",
         "repo": "dotfiles",
-        "rev": "5199990d99a2b58019f2cb5f36d1105a4dcf2524",
+        "rev": "8ea9d045fd20bb1ac34783e1af57a188b7a4fbb5",
         "type": "github"
       },
       "original": {
@@ -20,11 +20,11 @@
     "dotfilesNixos": {
       "flake": false,
       "locked": {
-        "lastModified": 1764518802,
-        "narHash": "sha256-V2D277QgckU6AcZqEzsOdKf//gqyXmVSoSViZuzJ1Yk=",
+        "lastModified": 1764519192,
+        "narHash": "sha256-t+na16dcrD3Wddc4Uv1fPyKuP12X04gvoftwEFAopnU=",
         "owner": "aki-ph-chem",
         "repo": "dotfiles",
-        "rev": "d3ccd6d2aadacfc112cb71881f1f9d9a7e8b5f75",
+        "rev": "5d4c6d7a9f1abbb5a50f4efb00cdc3752879f6fc",
         "type": "github"
       },
       "original": {
