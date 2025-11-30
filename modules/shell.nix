@@ -3,7 +3,17 @@
   pkgs,
   ...
 }:
+let
+  # Temporary settings
+  tmpEnvVar = ''
+    # Rust
+    export PATH="$HOME/.cargo/bin:$PATH"
+    . "$HOME/.cargo/env"
 
+    # Haskell
+    [ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
+  '';
+in
 {
   # see: https://home-manager-options.extranix.com/?query=programs.bash&release=master
   programs.bash = {
@@ -21,6 +31,7 @@
 
       # fuzzy finder
       eval "$(fzf --bash)"
+      ${tmpEnvVar}
     '';
 
     ## alias
