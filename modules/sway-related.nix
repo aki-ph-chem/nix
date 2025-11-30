@@ -12,6 +12,7 @@
     pkgs.waybar
     pkgs.rofi
     pkgs.kanshi
+    pkgs.waypaper
   ];
 
   home.file = {

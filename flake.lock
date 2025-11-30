@@ -3,11 +3,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1764516327,
-        "narHash": "sha256-PgjKctGrcpiJGpWVGFKC4rJTnhyewjkAy0lkrIdMy44=",
+        "lastModified": 1764518505,
+        "narHash": "sha256-PEW+RAnHDmq19XUEbSVH6Qgk9IEpxUXC5+9bnRxxojY=",
         "owner": "aki-ph-chem",
         "repo": "dotfiles",
-        "rev": "ea19a2c0d5b9965be470e35f73b2553dd5846b06",
+        "rev": "5199990d99a2b58019f2cb5f36d1105a4dcf2524",
         "type": "github"
       },
       "original": {
