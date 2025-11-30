@@ -20,11 +20,11 @@
     "dotfilesNixos": {
       "flake": false,
       "locked": {
-        "lastModified": 1764168632,
-        "narHash": "sha256-V8LeHP71uFdL4B2rUbRNGbf6Mhe51Hu4NTfbsSA4DPs=",
+        "lastModified": 1764500045,
+        "narHash": "sha256-OulLEYwsnzBhxaz0c4WjmF/XFKaAGuh2Z30lZ4Wd0jA=",
         "owner": "aki-ph-chem",
         "repo": "dotfiles",
-        "rev": "889e3cda41993a09781f32e79f0084d3a832e6b6",
+        "rev": "d2052712c0938bccef6ffc9ce2757b3bce2a39c4",
         "type": "github"
       },
       "original": {
