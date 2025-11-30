@@ -3,19 +3,25 @@
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
+    xwayland.enable = true;
+    # sway related pkgs
+    extraPackages = [
+      pkgs.waybar
+      pkgs.swaybg
+      pkgs.swayidle
+      pkgs.rofi
+      pkgs.brightnessctl
+      pkgs.clipman
+      pkgs.grim
+      pkgs.foot
+    ];
+    #use swayfx
+    package = pkgs.swayfx;
   };
 
   users.users."${userName}".packages = with pkgs; [
     ## sway-related
-    swayidle
-    swaybg
     swaylock-effects
-    xwayland
-    pkgs.waybar
-    pkgs.rofi
     wlogout
-    ## other
-    brightnessctl
-    clipman
   ];
 }
