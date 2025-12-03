@@ -38,6 +38,7 @@ home-manager.lib.homeManagerConfiguration {
         "${flakeRoot}/modules/gui-app-nixgl.nix"
         "${flakeRoot}/modules/nerd-fonts.nix"
         "${flakeRoot}/modules/shell.nix"
+        "${flakeRoot}/modules/wezterm.nix"
       ];
 
       home.packages = [
