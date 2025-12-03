@@ -8,6 +8,6 @@
     firefox
     chromium
     wezterm
-    tree
+    vlc
   ];
 }

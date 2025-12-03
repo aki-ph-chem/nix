@@ -98,6 +98,8 @@ nixpkgs.lib.nixosSystem {
         vim
         wget
         fastfetch
+        tree
+        htop
       ];
 
       # Enable touchpad support (enabled default in most desktopManager).
