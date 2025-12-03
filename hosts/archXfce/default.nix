@@ -34,6 +34,7 @@ home-manager.lib.homeManagerConfiguration {
         "${flakeRoot}/modules/git.nix"
         "${flakeRoot}/modules/neovide-nixgl.nix"
         "${flakeRoot}/modules/shell.nix"
+        "${flakeRoot}/modules/wezterm.nix"
       ];
 
       home.packages = [
