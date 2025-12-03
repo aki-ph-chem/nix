@@ -7,13 +7,14 @@ let
     nixpkgs
     home-manager
     self
-    dotfilesNixos
+    dotfiles
     ;
   stdenv.hostPlatform.system = "x86_64-linux";
   pkgs = nixpkgs.legacyPackages.${stdenv.hostPlatform.system};
   userName = "aki";
   # flakeRoot is path which flake.nix exists
   flakeRoot = self.outPath;
+  swayConfigBase = builtins.readFile "${dotfiles}/sway/config";
 in
 nixpkgs.lib.nixosSystem {
   inherit pkgs;
@@ -51,21 +52,23 @@ nixpkgs.lib.nixosSystem {
             home.file = {
               # sway
               ".config/sway/config" = {
-                source = "${dotfilesNixos}/sway/config";
+                text = ''
+                  ${swayConfigBase}
+                '';
               };
               # waybar
               ".config/waybar" = {
-                source = "${dotfilesNixos}/sway/waybar";
+                source = "${dotfiles}/sway/waybar";
                 recursive = true;
               };
               # rofi
               ".config/rofi" = {
-                source = "${dotfilesNixos}/rofi";
+                source = "${dotfiles}/rofi";
                 recursive = true;
               };
               # wlogout
               ".config/wlogout" = {
-                source = "${dotfilesNixos}/wlogout";
+                source = "${dotfiles}/wlogout";
                 recursive = true;
               };
             };
