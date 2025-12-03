@@ -6,7 +6,6 @@
       noto-fonts-cjk-serif
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
-      #nerdfonts
     ];
     fontDir.enable = true;
     fontconfig = {
