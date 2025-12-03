@@ -27,6 +27,7 @@ nixpkgs.lib.nixosSystem {
         (import "${flakeRoot}/nixos/sound" { inherit pkgs userName; })
         (import "${flakeRoot}/nixos/gpg" { inherit pkgs userName; })
         (import "${flakeRoot}/nixos/polkit" { inherit pkgs; })
+        (import "${flakeRoot}/nixos/gui-app" { inherit pkgs userName; })
         # Include the results of the hardware scan.
         ./hardware-configuration.nix
         home-manager.nixosModules.home-manager
@@ -44,10 +45,6 @@ nixpkgs.lib.nixosSystem {
               "${flakeRoot}/modules/wezterm.nix"
             ];
             home.packages = [
-              pkgs.firefox
-              pkgs.chromium
-              pkgs.wezterm
-              pkgs.tree
             ];
 
             home.file = {
@@ -101,6 +98,8 @@ nixpkgs.lib.nixosSystem {
         vim
         wget
         fastfetch
+        tree
+        htop
       ];
 
       # Enable touchpad support (enabled default in most desktopManager).
