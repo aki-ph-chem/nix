@@ -42,7 +42,7 @@ nixpkgs.lib.nixosSystem {
               "${flakeRoot}/modules/i18n.nix"
               "${flakeRoot}/modules/nerd-fonts.nix"
               "${flakeRoot}/modules/shell.nix"
-              "${flakeRoot}/modules/wezterm.nix"
+              (import "${flakeRoot}/modules/wezterm.nix" { inherit dotfiles; })
             ];
             home.packages = [
             ];
