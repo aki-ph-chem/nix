@@ -45,10 +45,6 @@ nixpkgs.lib.nixosSystem {
               "${flakeRoot}/modules/wezterm.nix"
             ];
             home.packages = [
-              pkgs.firefox
-              pkgs.chromium
-              pkgs.wezterm
-              pkgs.tree
             ];
 
             home.file = {

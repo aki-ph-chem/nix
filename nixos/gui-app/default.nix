@@ -5,5 +5,9 @@
     xfce.ristretto
     qpdfview
     zathura
+    firefox
+    chromium
+    wezterm
+    tree
   ];
 }
