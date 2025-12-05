@@ -39,6 +39,7 @@ home-manager.lib.homeManagerConfiguration {
         "${flakeRoot}/modules/nerd-fonts.nix"
         "${flakeRoot}/modules/shell.nix"
         "${flakeRoot}/modules/wezterm.nix"
+        "${flakeRoot}/modules/gpg-agent.nix"
       ];
 
       home.packages = [
