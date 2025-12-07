@@ -44,6 +44,7 @@ nixpkgs.lib.nixosSystem {
               "${flakeRoot}/modules/nerd-fonts.nix"
               "${flakeRoot}/modules/shell.nix"
               (import "${flakeRoot}/modules/wezterm.nix" { inherit dotfiles; })
+              "${flakeRoot}/modules/latex.nix"
             ];
             home.packages = [
             ];
@@ -80,9 +81,18 @@ nixpkgs.lib.nixosSystem {
       boot.loader.efi.canTouchEfiVariables = true;
       boot.kernelPackages = pkgs.linuxPackages_latest; # Use latest kernel.
 
-      networking.hostName = "nixos"; # Define your hostname.
-      # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+      networking.hostName = "nix"; # Define your hostname.
       networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+      networking.networkmanager.wifi.backend = "iwd"; # Enables wireless support via iwd.
+      # config for iwd
+      networking.wireless.iwd.settings = {
+        Network = {
+          EnableIPv6 = true;
+        };
+        Settings = {
+          AutoConnect = true;
+        };
+      };
 
       # Set your time zone.
       time.timeZone = "Asia/Tokyo";
@@ -146,7 +156,6 @@ nixpkgs.lib.nixosSystem {
       };
 
       # flatpak
-      # flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
       services.flatpak.enable = true;
       xdg.portal.enable = true;
 
