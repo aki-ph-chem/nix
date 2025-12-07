@@ -6,6 +6,8 @@
     qpdfview
     zathura
     firefox
+    thunderbird
+    neovide
     chromium
     wezterm
     vlc

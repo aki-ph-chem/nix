@@ -44,6 +44,7 @@ nixpkgs.lib.nixosSystem {
               "${flakeRoot}/modules/nerd-fonts.nix"
               "${flakeRoot}/modules/shell.nix"
               (import "${flakeRoot}/modules/wezterm.nix" { inherit dotfiles; })
+              "${flakeRoot}/modules/latex.nix"
             ];
             home.packages = [
             ];
