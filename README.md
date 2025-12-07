@@ -44,6 +44,10 @@ home-manager switch --flake .#archXfce --impure
 sudo nixos-rebuild switch --flake .#nixosSwayDesktop --impure
 ```
 
+```bash
+sudo nixos-rebuild switch --flake .#nixosSwayLaptop --impure
+```
+
 ### 🔄 Updating Packages
 
 Update the inputs (e.g., **Nixpkgs** and other Flakes) and reapply the configuration.
