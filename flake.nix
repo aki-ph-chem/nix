@@ -43,6 +43,11 @@
         nixosSwayDesktop = import ./hosts/nixosSwayDesktop {
           inherit inputs;
         };
+
+        # sudo nixos-rebuild switch --flake .#nixosSwayLaptop --impure
+        nixosSwayLaptop = import ./hosts/nixosSwayLaptop {
+          inherit inputs;
+        };
       };
     };
 }
