@@ -13,7 +13,7 @@
     pkgs.pinact
     # git related packages
     pkgs.lazygit
-    pkgs.gh
+    #pkgs.gh
     pkgs.glab
     # languages tool
     pkgs.uv
