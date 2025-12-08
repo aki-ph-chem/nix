@@ -29,6 +29,7 @@ nixpkgs.lib.nixosSystem {
         (import "${flakeRoot}/nixos/polkit" { inherit pkgs; })
         (import "${flakeRoot}/nixos/gui-app" { inherit pkgs userName; })
         (import "${flakeRoot}/nixos/nix-ld" { inherit pkgs; })
+        (import "${flakeRoot}/nixos/locale" { inherit pkgs; })
         # Include the results of the hardware scan.
         ./hardware-configuration.nix
         home-manager.nixosModules.home-manager
@@ -54,6 +55,8 @@ nixpkgs.lib.nixosSystem {
               ".config/sway/config" = {
                 text = ''
                   ${swayConfigBase}
+                  # give Sway a little time to startup before starting kanshi.
+                  exec sleep 5; systemctl --user start kanshi.service
                 '';
               };
               # waybar
@@ -64,6 +67,11 @@ nixpkgs.lib.nixosSystem {
               # rofi
               ".config/rofi" = {
                 source = "${dotfiles}/rofi";
+                recursive = true;
+              };
+              # kanshi
+              ".config/kanshi" = {
+                source = "${dotfiles}/sway/kanshi";
                 recursive = true;
               };
               # wlogout
@@ -97,8 +105,6 @@ nixpkgs.lib.nixosSystem {
       # Set your time zone.
       time.timeZone = "Asia/Tokyo";
 
-      # Select internationalisation properties.
-      i18n.defaultLocale = "en_US.UTF-8";
       console = {
         font = "Lat2-Terminus16";
         keyMap = "us";
