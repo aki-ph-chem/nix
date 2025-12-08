@@ -9,6 +9,10 @@
     pulse.enable = true;
   };
 
+  environment.systemPackages = with pkgs; [
+    pulseaudio
+  ];
+
   users.users."${userName}".packages = with pkgs; [
     ## sound related packages
     helvum
