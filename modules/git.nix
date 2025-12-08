@@ -13,4 +13,18 @@
       };
     };
   };
+
+  home.packages = [
+    pkgs.pinact
+    # git related packages
+    pkgs.lazygit
+    #pkgs.gh
+    pkgs.glab
+  ];
+
+  # GitHub CLI
+  programs.gh = {
+    enable = true;
+    extensions = [ pkgs.gh-dash ];
+  };
 }
