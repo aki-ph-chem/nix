@@ -55,6 +55,8 @@ nixpkgs.lib.nixosSystem {
               ".config/sway/config" = {
                 text = ''
                   ${swayConfigBase}
+                  # give Sway a little time to startup before starting kanshi.
+                  exec sleep 5; systemctl --user start kanshi.service
                 '';
               };
               # waybar
