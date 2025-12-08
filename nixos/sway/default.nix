@@ -24,5 +24,6 @@
     swaylock-effects
     wlogout
     waypaper
+    kanshi
   ];
 }

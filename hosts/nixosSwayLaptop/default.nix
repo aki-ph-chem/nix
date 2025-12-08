@@ -66,6 +66,11 @@ nixpkgs.lib.nixosSystem {
                 source = "${dotfiles}/rofi";
                 recursive = true;
               };
+              # kanshi
+              ".config/kanshi" = {
+                source = "${dotfiles}/sway/kanshi";
+                recursive = true;
+              };
               # wlogout
               ".config/wlogout" = {
                 source = "${dotfiles}/wlogout";
