@@ -89,6 +89,14 @@ nixpkgs.lib.nixosSystem {
       boot.loader.efi.canTouchEfiVariables = true;
       boot.kernelPackages = pkgs.linuxPackages_latest; # Use latest kernel.
 
+      # Swap file
+      swapDevices = [
+        {
+          device = "/var/lib/swapfile";
+          size = 32 * 1024; # 32 GB
+        }
+      ];
+
       networking.hostName = "nix"; # Define your hostname.
       networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
       networking.networkmanager.wifi.backend = "iwd"; # Enables wireless support via iwd.
