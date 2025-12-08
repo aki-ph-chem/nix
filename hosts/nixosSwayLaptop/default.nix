@@ -109,6 +109,12 @@ nixpkgs.lib.nixosSystem {
           AutoConnect = true;
         };
       };
+      # firewall: deny all in-comming
+      networking.firewall.enable = true;
+
+      # OpenSSH
+      # Enable the OpenSSH daemon.
+      services.openssh.enable = true;
 
       # Set your time zone.
       time.timeZone = "Asia/Tokyo";
@@ -142,10 +148,6 @@ nixpkgs.lib.nixosSystem {
       };
       # uninstall nano
       programs.nano.enable = false;
-
-      # OpenSSH
-      # Enable the OpenSSH daemon.
-      services.openssh.enable = true;
 
       environment.sessionVariables = {
         EDITOR = "nvim";
