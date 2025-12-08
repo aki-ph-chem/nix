@@ -10,11 +10,6 @@
     pkgs.ripgrep
     pkgs.bat
     pkgs.yazi
-    pkgs.pinact
-    # git related packages
-    pkgs.lazygit
-    #pkgs.gh
-    pkgs.glab
     # languages tool
     pkgs.uv
     pkgs.shellcheck
