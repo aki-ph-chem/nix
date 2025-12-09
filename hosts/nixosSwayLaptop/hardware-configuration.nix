@@ -30,6 +30,8 @@
     fsType = "ext4";
   };
 
+  # enroll key to TMP by command below (needs secureboot)
+  # sudo systemd-cryptenroll /dev/nvme0n1p2 --wipe-slot=tpm2 --tpm2-device=auto --tpm2-pcrs=7
   boot.initrd.luks.devices."cryptnvme".device =
     "/dev/disk/by-uuid/d2e0f28e-88ee-4005-b0fd-11612ed75495";
 
