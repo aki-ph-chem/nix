@@ -111,6 +111,8 @@ nixpkgs.lib.nixosSystem {
       };
       # firewall: deny all in-comming
       networking.firewall.enable = true;
+      # enable bluetooth
+      hardware.bluetooth.enable = true;
 
       # OpenSSH
       # Enable the OpenSSH daemon.
