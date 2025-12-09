@@ -9,6 +9,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixgl.url = "github:nix-community/nixGL";
+
+    # for secure-boot
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.3";
+      # Optional but recommended to limit the size of your system closure.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # GitHub: aki-ph-chem/dotfiles
     dotfiles = {
       url = "github:aki-ph-chem/dotfiles/main";
@@ -19,6 +27,7 @@
   outputs =
     {
       nixpkgs,
+      lanzaboote,
       home-manager,
       nixgl,
       dotfiles,
