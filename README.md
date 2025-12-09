@@ -25,6 +25,7 @@ The basic commands to apply this configuration. Execute these in the root direct
 | **archXfce**         | Applies CLI tools and general settings.                                                |
 | **archSway**         | Applies **Sway** related packages and gui app packages (sets an environment variable). |
 | **nixosSwayDesktop** | config for NixOS + Sway                                                                |
+| **nixosSwayLaptop**  | config for NixOS + Sway (LUKS encrypted)                                               |
 
 - for Arch Linux + sway
 
