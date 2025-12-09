@@ -133,6 +133,8 @@ nixpkgs.lib.nixosSystem {
         fastfetch
         tree
         htop
+        # For debugging and troubleshooting Secure Boot.
+        sbctl
       ];
 
       # Enable touchpad support (enabled default in most desktopManager).
