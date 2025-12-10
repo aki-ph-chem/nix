@@ -5,6 +5,7 @@
 let
   inherit (inputs)
     nixpkgs
+    lanzaboote
     home-manager
     self
     dotfiles
@@ -20,6 +21,18 @@ nixpkgs.lib.nixosSystem {
   inherit pkgs;
 
   modules = [
+    lanzaboote.nixosModules.lanzaboote
+    (
+      { pkgs, lib, ... }:
+      {
+        boot.loader.systemd-boot.enable = lib.mkForce false;
+
+        boot.lanzaboote = {
+          enable = true;
+          pkiBundle = "/var/lib/sbctl";
+        };
+      }
+    )
     {
       imports = [
         (import "${flakeRoot}/nixos/fonts" { inherit pkgs; })
@@ -85,7 +98,6 @@ nixpkgs.lib.nixosSystem {
       ];
 
       # Use the systemd-boot EFI boot loader.
-      boot.loader.systemd-boot.enable = true;
       boot.loader.efi.canTouchEfiVariables = true;
       boot.kernelPackages = pkgs.linuxPackages_latest; # Use latest kernel.
 
@@ -133,6 +145,8 @@ nixpkgs.lib.nixosSystem {
         fastfetch
         tree
         htop
+        # For debugging and troubleshooting Secure Boot.
+        sbctl
       ];
 
       # Enable touchpad support (enabled default in most desktopManager).
