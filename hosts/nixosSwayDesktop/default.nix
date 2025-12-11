@@ -54,6 +54,9 @@ nixpkgs.lib.nixosSystem {
               ".config/sway/config" = {
                 text = ''
                   ${swayConfigBase}
+
+                  # screen shot by flamegraph
+                  bindsym Print exec flameshot gui -p $HOME/Pictures/ScreenShot/
                 '';
               };
               # waybar
