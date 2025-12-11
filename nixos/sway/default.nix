@@ -38,5 +38,6 @@
     swaylock-effects
     wlogout
     waypaper
+    flameshot
   ];
 }
