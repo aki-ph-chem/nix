@@ -30,6 +30,7 @@ nixpkgs.lib.nixosSystem {
         (import "${flakeRoot}/nixos/gui-app" { inherit pkgs userName; })
         (import "${flakeRoot}/nixos/nix-ld" { inherit pkgs; })
         (import "${flakeRoot}/nixos/locale" { inherit pkgs; })
+        (import "${flakeRoot}/nixos/virtualisation" { inherit pkgs; })
         # Include the results of the hardware scan.
         ./hardware-configuration.nix
         home-manager.nixosModules.home-manager
@@ -114,6 +115,7 @@ nixpkgs.lib.nixosSystem {
         extraGroups = [
           "wheel"
           "networkmanager"
+          "docker"
         ]; # Enable ‘sudo’ for the user.
         packages = with pkgs; [
         ];
@@ -137,13 +139,6 @@ nixpkgs.lib.nixosSystem {
             "nix-command"
             "flakes"
           ];
-        };
-      };
-
-      # Docker
-      virtualisation = {
-        docker = {
-          enable = true;
         };
       };
 
