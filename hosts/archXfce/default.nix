@@ -18,6 +18,18 @@ let
   ];
   # flakeRoot is path which flake.nix exists
   flakeRoot = self.outPath;
+  shellConfigs = {
+    envVarShell = ''
+      # Rust
+      export PATH="$HOME/.cargo/bin:$PATH"
+      . "$HOME/.cargo/env"
+
+      # Haskell
+      [ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
+    '';
+    aliases = {
+    };
+  };
 in
 home-manager.lib.homeManagerConfiguration {
   inherit pkgs;
@@ -33,7 +45,7 @@ home-manager.lib.homeManagerConfiguration {
         "${flakeRoot}/modules/cli-tools.nix"
         "${flakeRoot}/modules/git.nix"
         "${flakeRoot}/modules/neovide-nixgl.nix"
-        "${flakeRoot}/modules/shell.nix"
+        (import "${flakeRoot}/modules/shell.nix" { inherit pkgs shellConfigs; })
         "${flakeRoot}/modules/wezterm.nix"
       ];
 
