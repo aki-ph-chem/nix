@@ -16,6 +16,29 @@ let
   # flakeRoot is path which flake.nix exists
   flakeRoot = self.outPath;
   swayConfigBase = builtins.readFile "${dotfiles}/sway/config";
+  # configs for shell
+  shellConfigs = {
+    envVarShell = '''';
+    aliases = {
+      lock = ''
+        swaylock \
+        	--screenshots \
+        	--clock \
+        	--indicator \
+        	--indicator-radius 100 \
+        	--indicator-thickness 7 \
+        	--effect-blur 7x5 \
+        	--effect-vignette 0.5:0.5 \
+        	--ring-color bb00cc \
+        	--key-hl-color 880033 \
+        	--line-color 00000000 \
+        	--inside-color 00000088 \
+        	--separator-color 00000000 \
+        	--grace 2 \
+        	--fade-in 1'';
+    };
+  };
+
 in
 nixpkgs.lib.nixosSystem {
   inherit pkgs;
@@ -57,7 +80,7 @@ nixpkgs.lib.nixosSystem {
               "${flakeRoot}/modules/git.nix"
               "${flakeRoot}/modules/i18n.nix"
               "${flakeRoot}/modules/nerd-fonts.nix"
-              "${flakeRoot}/modules/shell.nix"
+              (import "${flakeRoot}/modules/shell.nix" { inherit pkgs shellConfigs; })
               (import "${flakeRoot}/modules/wezterm.nix" { inherit dotfiles; })
               "${flakeRoot}/modules/latex.nix"
             ];

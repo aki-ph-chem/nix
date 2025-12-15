@@ -1,19 +1,8 @@
 {
-  config,
   pkgs,
+  shellConfigs,
   ...
 }:
-let
-  # Temporary settings
-  tmpEnvVar = ''
-    # Rust
-    export PATH="$HOME/.cargo/bin:$PATH"
-    . "$HOME/.cargo/env"
-
-    # Haskell
-    [ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
-  '';
-in
 {
   # see: https://home-manager-options.extranix.com/?query=programs.bash&release=master
   programs.bash = {
@@ -31,7 +20,9 @@ in
 
       # fuzzy finder
       eval "$(fzf --bash)"
-      ${tmpEnvVar}
+
+      # added from shell.nix
+      ${shellConfigs.envVarShell}
     '';
 
     ## alias
@@ -41,23 +32,8 @@ in
       egrep = "egrep --colour=auto";
       fgrep = "fgrep --colour=auto";
 
-      lock = ''
-        swaylock \
-        	--screenshots \
-        	--clock \
-        	--indicator \
-        	--indicator-radius 100 \
-        	--indicator-thickness 7 \
-        	--effect-blur 7x5 \
-        	--effect-vignette 0.5:0.5 \
-        	--ring-color bb00cc \
-        	--key-hl-color 880033 \
-        	--line-color 00000000 \
-        	--inside-color 00000088 \
-        	--separator-color 00000000 \
-        	--grace 2 \
-        	--fade-in 1'';
-    };
+    }
+    // shellConfigs.aliases;
 
   };
 
