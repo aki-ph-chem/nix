@@ -18,14 +18,7 @@ let
   swayConfigBase = builtins.readFile "${dotfiles}/sway/config";
   # configs for shell
   shellConfigs = {
-    envVarShell = ''
-      # Rust
-      export PATH="$HOME/.cargo/bin:$PATH"
-      . "$HOME/.cargo/env"
-
-      # Haskell
-      [ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
-    '';
+    envVarShell = '''';
     aliases = {
       lock = ''
         swaylock \
