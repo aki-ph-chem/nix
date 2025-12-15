@@ -16,6 +16,15 @@ let
   # flakeRoot is path which flake.nix exists
   flakeRoot = self.outPath;
   swayConfigBase = builtins.readFile "${dotfiles}/sway/config";
+  envVarShell = ''
+    # Rust
+    export PATH="$HOME/.cargo/bin:$PATH"
+    . "$HOME/.cargo/env"
+
+    # Haskell
+    [ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
+  '';
+
 in
 nixpkgs.lib.nixosSystem {
   inherit pkgs;
@@ -57,7 +66,7 @@ nixpkgs.lib.nixosSystem {
               "${flakeRoot}/modules/git.nix"
               "${flakeRoot}/modules/i18n.nix"
               "${flakeRoot}/modules/nerd-fonts.nix"
-              "${flakeRoot}/modules/shell.nix"
+              (import "${flakeRoot}/modules/shell.nix" { inherit pkgs envVarShell; })
               (import "${flakeRoot}/modules/wezterm.nix" { inherit dotfiles; })
               "${flakeRoot}/modules/latex.nix"
             ];
