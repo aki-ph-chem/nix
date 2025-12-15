@@ -10,6 +10,7 @@ The main features of this configuration are:
   - **Declarative Configuration**: **Home Manager** is used to centrally manage **home directory** configurations   
   - **Modularity**: The configuration is split into **Nix modules** based on functionality, improving maintainability and reusability.
   - **Diverse Environment Support**:
+      - system level configuration of NixOS
       - **CLI** tools
       - Development environments like **Neovim**
       - Support for **GUI applications** using **NixGL** (for non-NixOS environments)
@@ -25,7 +26,7 @@ The basic commands to apply this configuration. Execute these in the root direct
 | **archXfce**         | Applies CLI tools and general settings.                                                |
 | **archSway**         | Applies **Sway** related packages and gui app packages (sets an environment variable). |
 | **nixosSwayDesktop** | config for NixOS + Sway                                                                |
-| **nixosSwayLaptop**  | config for NixOS + Sway (LUKS encrypted)                                               |
+| **nixosSwayLaptop**  | config for NixOS + Sway (LUKS encryption + secure boot)                                |
 
 - for Arch Linux + sway
 
@@ -71,9 +72,10 @@ The configuration files are organized as follows(Folded):
 |-----------------------------|------------------------------------------------------------------------------------------------------------------|
 | `flake.nix`                 | The Entry point and declaration of my configuration. The Home Manager instance is also declared here.            |
 | `flake.lock`                | The lock file that  guarantees the **reproducibility** of the Flake.                                             |
-| `hosts/archSway`            | config for Arch Linux + Sway                                                                                     |
-| `hosts/archXfce`            | config for Arch Linux + Xfce                                                                                     |
-| `hosts/nixosSwayDesktop`    | config for NixOS + Sway                                                                                          |
+| `hosts/archSway/`           | configs for Arch Linux + Sway                                                                                    |
+| `hosts/archXfce/`           | configs for Arch Linux + Xfce                                                                                    |
+| `hosts/nixosSwayDesktop/`   | configs for NixOS + Sway for Desktop machine                                                                     |
+| `hosts/nixosSwayLapktop/`   | configs for NixOS + Sway for Laptop machine                                                                      |
 | `modules/`                  | Directory for **Nix modules** split by functionality.                                                            |
 | `modules/cli-tools.nix`     | Configuration and installation for **CLI applications**                                                          |
 | `modules/git.nix`           | **Git** configuration.                                                                                           |
@@ -82,7 +84,16 @@ The configuration files are organized as follows(Folded):
 | `modules/neovim.nix`        | **Neovim** configuration, including LSP,formatter, ..etc (**NOT** include plugins).                              |
 | `modules/neovide-nixgl.nix` | **Neovide**(extra GUI for neovim) configuration Includes settings for using **NixGL** in non-NixOS environments. |
 | `modules/sway-related.nix`  | Configuration for the **Sway** window manager related packages (e.g., `waybar`, `rofi`).                         |
-| `nixos`                     | Configurations for the **NixOS**                                                                                 |
+| `nixos/`                    | Configurations for the **NixOS**                                                                                 |
+| `nixos/fonts/`              | Configurations for the fonts                                                                                     |
+| `nixos/gpg/`                | Configurations for the gpg-agent                                                                                 |
+| `nixos/gui-app/`            | Configurations for the gui apps                                                                                  |
+| `nixos/locale/`             | Configurations for locale                                                                                        |
+| `nixos/nix-ld/`             | Configurations for `nix-ld`                                                                                      |
+| `nixos/pokit/`              | Configurations for `pokit`                                                                                       |
+| `nixos/sound/`              | Configurations for sound                                                                                         |
+| `nixos/sway/`               | Configurations for sway & sway related packages                                                                  |
+| `nixos/virtualisation/`     | Configurations for Docker & libvirt (QEMU/KVM)                                                                   |
 
 
 </details>
