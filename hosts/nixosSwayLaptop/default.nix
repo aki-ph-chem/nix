@@ -16,14 +16,35 @@ let
   # flakeRoot is path which flake.nix exists
   flakeRoot = self.outPath;
   swayConfigBase = builtins.readFile "${dotfiles}/sway/config";
-  envVarShell = ''
-    # Rust
-    export PATH="$HOME/.cargo/bin:$PATH"
-    . "$HOME/.cargo/env"
+  # configs for shell
+  shellConfigs = {
+    envVarShell = ''
+      # Rust
+      export PATH="$HOME/.cargo/bin:$PATH"
+      . "$HOME/.cargo/env"
 
-    # Haskell
-    [ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
-  '';
+      # Haskell
+      [ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
+    '';
+    aliases = {
+      lock = ''
+        swaylock \
+        	--screenshots \
+        	--clock \
+        	--indicator \
+        	--indicator-radius 100 \
+        	--indicator-thickness 7 \
+        	--effect-blur 7x5 \
+        	--effect-vignette 0.5:0.5 \
+        	--ring-color bb00cc \
+        	--key-hl-color 880033 \
+        	--line-color 00000000 \
+        	--inside-color 00000088 \
+        	--separator-color 00000000 \
+        	--grace 2 \
+        	--fade-in 1'';
+    };
+  };
 
 in
 nixpkgs.lib.nixosSystem {
@@ -66,7 +87,7 @@ nixpkgs.lib.nixosSystem {
               "${flakeRoot}/modules/git.nix"
               "${flakeRoot}/modules/i18n.nix"
               "${flakeRoot}/modules/nerd-fonts.nix"
-              (import "${flakeRoot}/modules/shell.nix" { inherit pkgs envVarShell; })
+              (import "${flakeRoot}/modules/shell.nix" { inherit pkgs shellConfigs; })
               (import "${flakeRoot}/modules/wezterm.nix" { inherit dotfiles; })
               "${flakeRoot}/modules/latex.nix"
             ];
