@@ -10,6 +10,7 @@ The main features of this configuration are:
   - **Declarative Configuration**: **Home Manager** is used to centrally manage **home directory** configurations   
   - **Modularity**: The configuration is split into **Nix modules** based on functionality, improving maintainability and reusability.
   - **Diverse Environment Support**:
+      - system level configuration of NixOS
       - **CLI** tools
       - Development environments like **Neovim**
       - Support for **GUI applications** using **NixGL** (for non-NixOS environments)
