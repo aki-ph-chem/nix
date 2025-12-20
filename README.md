@@ -79,33 +79,34 @@ The configuration files are organized as follows(Folded):
 <details>
 <summary>here</summary>
 
-| File/path                   | Description                                                                                                      |
-|-----------------------------|------------------------------------------------------------------------------------------------------------------|
-| `flake.nix`                 | The Entry point and declaration of my configuration. The Home Manager instance is also declared here.            |
-| `flake.lock`                | The lock file that  guarantees the **reproducibility** of the Flake.                                             |
-| `hosts/archSway/`           | configs for Arch Linux + Sway                                                                                    |
-| `hosts/archXfce/`           | configs for Arch Linux + Xfce                                                                                    |
-| `hosts/nixosSwayDesktop/`   | configs for NixOS + Sway for Desktop machine                                                                     |
-| `hosts/nixosSwayLapktop/`   | configs for NixOS + Sway for Laptop machine                                                                      |
-| `modules/`                  | Directory for **Nix modules** split by functionality.                                                            |
-| `modules/cli-tools.nix`     | Configuration and installation for **CLI applications**                                                          |
-| `modules/git.nix`           | **Git** configuration.                                                                                           |
-| `modules/gui-app-nixgl.nix` | Installation of **GUI applications**. Includes settings for using **NixGL** in non-NixOS environments.           |
-| `modules/i18n.nix`          | Configuration related to **Internationalization** (I18n) and **IME** (e.g., `fcitx5`).                           |
-| `modules/neovim.nix`        | **Neovim** configuration, including LSP,formatter, ..etc (**NOT** include plugins).                              |
-| `modules/neovide-nixgl.nix` | **Neovide**(extra GUI for neovim) configuration Includes settings for using **NixGL** in non-NixOS environments. |
-| `modules/sway-related.nix`  | Configuration for the **Sway** window manager related packages (e.g., `waybar`, `rofi`).                         |
-| `nixos/`                    | Configurations for the **NixOS**                                                                                 |
-| `nixos/fonts/`              | Configurations for the fonts                                                                                     |
-| `nixos/gpg/`                | Configurations for the gpg-agent                                                                                 |
-| `nixos/gui-app/`            | Configurations for the gui apps                                                                                  |
-| `nixos/locale/`             | Configurations for locale                                                                                        |
-| `nixos/nix-ld/`             | Configurations for `nix-ld`                                                                                      |
-| `nixos/pokit/`              | Configurations for `pokit`                                                                                       |
-| `nixos/sound/`              | Configurations for sound                                                                                         |
-| `nixos/sway/`               | Configurations for sway & sway related packages                                                                  |
-| `nixos/virtualisation/`     | Configurations for Docker & libvirt (QEMU/KVM)                                                                   |
+| File/path                                                  | Description                                                                                                      |
+|------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| [`flake.nix`](./flake.nix)                                 | The Entry point and declaration of my configuration. The Home Manager instance is also declared here.            |
+| [`flake.lock`](./flake.lock)                               | The lock file that  guarantees the **reproducibility** of the Flake.                                             |
+| [`hosts/archSway/`](./hosts/archSway)                      | configs for Arch Linux + Sway                                                                                    |
+| [`hosts/archXfce/`](./hosts/archXfce)                      | configs for Arch Linux + Xfce                                                                                    |
+| [`hosts/nixosSwayDesktop/`](./hosts/nixosSwayDesktop)      | configs for NixOS + Sway for Desktop machine                                                                     |
+| [`hosts/nixosSwayLapktop/`](./hosts/nixosSwayLaptop)       | configs for NixOS + Sway for Laptop machine                                                                      |
+| [`modules/`](./modules)                                    | Directory for **Nix modules** split by functionality.                                                            |
+| [`modules/cli-tools.nix`](./modules/cli-tools.nix)         | Configuration and installation for **CLI applications**                                                          |
+| [`modules/git.nix`](./modules/git.nix)                     | **Git** configuration.                                                                                           |
+| [`modules/gui-app-nixgl.nix`](./modules/gui-app-nixgl.nix) | Installation of **GUI applications**. Includes settings for using **NixGL** in non-NixOS environments.           |
+| [`modules/i18n.nix`](./modules/i18n.nix)                   | Configuration related to **Internationalization** (I18n) and **IME** (e.g., `fcitx5`).                           |
+| [`modules/neovim.nix`](./modules/neovim.nix)               | **Neovim** configuration, including LSP,formatter, ..etc (**NOT** include plugins).                              |
+| [`modules/neovide-nixgl.nix`](./modules/neovide-nixgl.nix) | **Neovide**(extra GUI for neovim) configuration Includes settings for using **NixGL** in non-NixOS environments. |
+| [`modules/sway-related.nix`](./modules/sway-related.nix)   | Configuration for the **Sway** window manager related packages (e.g., `waybar`, `rofi`).                         |
+| [`nixos/`](./nixos)                                        | Configurations for the **NixOS**                                                                                 |
+| [`nixos/fonts/`](./nixos/fonts)                            | Configurations for the fonts                                                                                     |
+| [`nixos/gpg/`](./nixos/gpg)                                | Configurations for the gpg-agent                                                                                 |
+| [`nixos/gui-app/`](./nixos/gui-app)                        | Configurations for the gui apps                                                                                  |
+| [`nixos/locale/`](./nixos/locale)                          | Configurations for locale                                                                                        |
+| [`nixos/nix-ld/`](./nixos/nix-ld)                          | Configurations for `nix-ld`                                                                                      |
+| [`nixos/polkit/`](./nixos/polkit)                          | Configurations for `pokit`                                                                                       |
+| [`nixos/sound/`](./nixos/sound/)                           | Configurations for sound                                                                                         |
+| [`nixos/sway/`](./nixos/sway)                              | Configurations for sway & sway related packages                                                                  |
+| [`nixos/virtualisation/`](./nixos/virtualisation)          | Configurations for Docker & libvirt (QEMU/KVM)                                                                   |
 
+[archSway]: 
 
 </details>
 
