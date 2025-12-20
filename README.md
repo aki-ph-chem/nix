@@ -1,4 +1,14 @@
-# ❄️Nix ❄️ [![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org) [![ci](https://github.com/aki-ph-chem/nix/actions/workflows/updates.yaml/badge.svg)](https://github.com/aki-ph-chem/nix/actions/workflows/updates.yaml)
+<div align="center">
+
+# ❄️Nix ❄️ 
+
+</div>
+
+<div align="center">
+
+[![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org) [![ci](https://github.com/aki-ph-chem/nix/actions/workflows/updates.yaml/badge.svg)](https://github.com/aki-ph-chem/nix/actions/workflows/updates.yaml)
+
+</div>
 
 This repository contains my personal configuration files (Dotfiles) managed using **Nix** Flakes.
 
