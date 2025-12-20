@@ -1,3 +1,4 @@
+<div align="center"><img src="assets/nixos-logo.png" width="300px"></div>
 <div align="center">
 
 # ❄️Nix ❄️ 
