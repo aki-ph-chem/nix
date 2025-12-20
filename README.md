@@ -109,6 +109,12 @@ The configuration files are organized as follows(Folded):
 
 </details>
 
+### 🖼️ Desktop preview
+
+####  Sway
+
+<div align="center"><img src="assets/sway_1.png"></div>
+
 ## 🧹 Maintenance Commands
 
 ### 🗑️ Cleaning Up Old Generations
