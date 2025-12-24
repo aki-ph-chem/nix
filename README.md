@@ -22,6 +22,7 @@ The main features of this configuration are:
   - **Modularity**: The configuration is split into **Nix modules** based on functionality, improving maintainability and reusability.
   - **Diverse Environment Support**:
       - system level configuration of NixOS
+      - Hardware configuration
       - **CLI** tools
       - Development environments like **Neovim**
       - Support for **GUI applications** using **NixGL** (for non-NixOS environments)
@@ -106,8 +107,6 @@ The configuration files are organized as follows(Folded):
 | [`nixos/sway/`](./nixos/sway)                              | Configurations for sway & sway related packages                                                                  |
 | [`nixos/virtualisation/`](./nixos/virtualisation)          | Configurations for Docker & libvirt (QEMU/KVM)                                                                   |
 
-[archSway]: 
-
 </details>
 
 ### 🖼️ Desktop preview
@@ -123,7 +122,7 @@ The configuration files are organized as follows(Folded):
 Removes files from `/nix/store` that are no longer referenced by **old generations** (previous states of the system or home environment), freeing up disk space.
 
 ```bash
-$ nix-collect-garbage --delete-old
+nix-collect-garbage --delete-old
 ```
 
 ### 🔍 Package Search
@@ -131,7 +130,7 @@ $ nix-collect-garbage --delete-old
 Search for available packages within the Nixpkgs repository.
 
 ```bash
-$ nix search nixpkgs <package name>
+nix search nixpkgs <package name>
 ```
 
 or search package name in https://search.nixos.org/packages.
