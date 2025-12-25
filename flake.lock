@@ -205,6 +205,41 @@
         "type": "github"
       }
     },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1764950072,
+        "narHash": "sha256-BmPWzogsG2GsXZtlT+MTcAWeDK5hkbGRZTeZNW42fwA=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "f61125a668a320878494449750330ca58b78c557",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "pgopher": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1765274182,
+        "narHash": "sha256-jzh1SScsn/sv8DXuO7gD/gqc9zP6fmcGtSnwqJcTe8A=",
+        "owner": "aki-ph-chem",
+        "repo": "pgopher-nixos",
+        "rev": "be56cda1000fe77dad7c7bcf80599280ff0e7e4b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aki-ph-chem",
+        "ref": "main",
+        "repo": "pgopher-nixos",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks-nix": {
       "inputs": {
         "flake-compat": [
@@ -237,7 +272,8 @@
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
         "nixgl": "nixgl",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "pgopher": "pgopher"
       }
     },
     "rust-overlay": {
