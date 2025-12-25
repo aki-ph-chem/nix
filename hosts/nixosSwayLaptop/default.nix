@@ -54,6 +54,8 @@ nixpkgs.lib.nixosSystem {
         boot.lanzaboote = {
           enable = true;
           pkiBundle = "/var/lib/sbctl";
+          # see https://github.com/nix-community/lanzaboote/blob/master/nix/modules/lanzaboote.nix
+          configurationLimit = 7;
         };
       }
     )
