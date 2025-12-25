@@ -22,6 +22,11 @@
       url = "github:aki-ph-chem/dotfiles/main";
       flake = false;
     };
+
+    # PGOPHER: aki-ph-chem/pgopher-nixos
+    pgopher = {
+      url = "github:aki-ph-chem/pgopher-nixos/main";
+    };
   };
 
   outputs =
@@ -31,6 +36,7 @@
       home-manager,
       nixgl,
       dotfiles,
+      pgopher,
       self,
       ...
     }@inputs:

@@ -1,4 +1,8 @@
-{ pkgs, userName }:
+{
+  pkgs,
+  pgopher,
+  userName,
+}:
 {
   users.users."${userName}".packages = with pkgs; [
     xfce.thunar
@@ -11,5 +15,6 @@
     chromium
     wezterm
     vlc
+    pgopher.packages.x86_64-linux.default
   ];
 }
