@@ -4,14 +4,12 @@
 
   home.packages = [
     # CLI tools
-    pkgs.hugo
     pkgs.fzf
     pkgs.fd
     pkgs.ripgrep
     pkgs.bat
     pkgs.yazi
     # languages tool
-    pkgs.uv
     pkgs.shellcheck
     ## lux: package manager for Lua
     pkgs.lux-cli
