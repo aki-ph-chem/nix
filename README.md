@@ -122,7 +122,9 @@ The configuration files are organized as follows(Folded):
 Removes files from `/nix/store` that are no longer referenced by **old generations** (previous states of the system or home environment), freeing up disk space.
 
 ```bash
-nix-collect-garbage --delete-old
+nix-collect-garbage --delete-old # delete all old generations
+nix-collect-garbage --delete-older-than 7d # delete  older than 7days ago 
+nix-collect-garbage --delete-older-than 30d # delete  older than 30days ago 
 ```
 
 ### 🔍 Package Search
