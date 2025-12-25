@@ -8,6 +8,7 @@ let
     home-manager
     self
     dotfiles
+    pgopher
     ;
   stdenv.hostPlatform.system = "x86_64-linux";
   pkgs = nixpkgs.legacyPackages.${stdenv.hostPlatform.system};
@@ -48,7 +49,7 @@ nixpkgs.lib.nixosSystem {
         (import "${flakeRoot}/nixos/sound" { inherit pkgs userName; })
         (import "${flakeRoot}/nixos/gpg" { inherit pkgs userName; })
         (import "${flakeRoot}/nixos/polkit" { inherit pkgs; })
-        (import "${flakeRoot}/nixos/gui-app" { inherit pkgs userName; })
+        (import "${flakeRoot}/nixos/gui-app" { inherit pkgs pgopher userName; })
         (import "${flakeRoot}/nixos/nix-ld" { inherit pkgs; })
         (import "${flakeRoot}/nixos/locale" { inherit pkgs; })
         (import "${flakeRoot}/nixos/virtualisation" { inherit pkgs; })
