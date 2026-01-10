@@ -8,7 +8,7 @@ let
     exec ${nixGl} ${pkgs.zathura}/bin/zathura "$@" 
   '';
   ristrettoWrapper = pkgs.writeShellScriptBin "ristretto" ''
-    exec ${nixGl} ${pkgs.xfce.ristretto}/bin/ristretto "$@" 
+    exec ${nixGl} ${pkgs.ristretto}/bin/ristretto "$@" 
   '';
 in
 {
@@ -67,8 +67,8 @@ in
     genericName = "Image Viewer";
     terminal = false;
     noDisplay = false;
-    exec = "${nixGl} ${pkgs.xfce.ristretto}/bin/ristretto";
-    icon = "${pkgs.xfce.ristretto}/share/icons/hicolor/scalable/apps/org.xfce.ristretto.svg";
+    exec = "${nixGl} ${pkgs.ristretto}/bin/ristretto";
+    icon = "${pkgs.ristretto}/share/icons/hicolor/scalable/apps/org.ristretto.svg";
   };
 
   home.packages = [

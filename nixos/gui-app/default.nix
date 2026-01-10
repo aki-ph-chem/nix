@@ -5,8 +5,8 @@
 }:
 {
   users.users."${userName}".packages = with pkgs; [
-    xfce.thunar
-    xfce.ristretto
+    thunar
+    ristretto
     qpdfview
     zathura
     firefox
