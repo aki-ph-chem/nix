@@ -14,7 +14,6 @@
     ## lux: package manager for Lua
     pkgs.lux-cli
     ## GNU global
-    pkgs.global
     ## for network
     pkgs.netcat-gnu
     ## TUI feed reader
