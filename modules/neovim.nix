@@ -90,7 +90,7 @@ in
       ## formatter for json
       pkgs.jq
       ## fomatter for Nix Language
-      pkgs.nixfmt-rfc-style
+      pkgs.nixfmt
       ## fromatter for Python
       pkgs.ruff
 
