@@ -26,6 +26,7 @@
     # PGOPHER: aki-ph-chem/pgopher-nixos
     pgopher = {
       url = "github:aki-ph-chem/pgopher-nixos/main";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

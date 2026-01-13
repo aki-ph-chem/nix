@@ -182,32 +182,18 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1764950072,
-        "narHash": "sha256-BmPWzogsG2GsXZtlT+MTcAWeDK5hkbGRZTeZNW42fwA=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "f61125a668a320878494449750330ca58b78c557",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "pgopher": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
-        "lastModified": 1765274182,
-        "narHash": "sha256-jzh1SScsn/sv8DXuO7gD/gqc9zP6fmcGtSnwqJcTe8A=",
+        "lastModified": 1768234065,
+        "narHash": "sha256-XuW2l0bfjY7IFbSFG7xPTPjuScLvC4XzNCjJnqKL478=",
         "owner": "aki-ph-chem",
         "repo": "pgopher-nixos",
-        "rev": "be56cda1000fe77dad7c7bcf80599280ff0e7e4b",
+        "rev": "039e21b7df6e89ac85a422c18065c8ed21dfbc40",
         "type": "github"
       },
       "original": {
