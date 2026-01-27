@@ -9,6 +9,7 @@
     pkgs.ripgrep
     pkgs.bat
     pkgs.yazi
+    pkgs.lazydocker
     # languages tool
     pkgs.shellcheck
     ## lux: package manager for Lua
