@@ -4,18 +4,18 @@
     enable = true;
     libraries = with pkgs; [
       # X11
-      xorg.libX11
-      xorg.libXext
-      xorg.libXrender
-      xorg.libXrandr
-      xorg.libXcursor
-      xorg.libXcomposite
-      xorg.libXtst
-      xorg.libXfixes
-      xorg.libxcb
-      xorg.libXdamage
-      xorg.libxshmfence
-      xorg.libXxf86vm
+      libX11
+      libXext
+      libXrender
+      libXrandr
+      libXcursor
+      libXcomposite
+      libXtst
+      libXfixes
+      libxcb
+      libXdamage
+      libxshmfence
+      libXxf86vm
 
       # GTK2
       glib
