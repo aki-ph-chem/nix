@@ -5,17 +5,34 @@
 }:
 {
   users.users."${userName}".packages = with pkgs; [
+    # filer
     thunar
-    tumbler # This is required for thumbnail display in 'thunar' and 'ristretto'.
+    # image viwer
     ristretto
+    tumbler # This is required for thumbnail display in 'thunar' and 'ristretto'.
+
+    # movie & music
+    vlc
+
+    # pdf viwer
     qpdfview
     zathura
-    firefox
-    thunderbird
+    # for drawing
+    inkscape
+
+    # neovim GUI
     neovide
-    chromium
+    # tarminal emulator
     wezterm
-    vlc
+
+    # web browser
+    chromium
+    firefox
+    brave
+    # e-mail & feed
+    thunderbird
+
+    # pgopher
     pgopher.packages.x86_64-linux.default
   ];
 }
