@@ -17,6 +17,8 @@
     # pdf viwer
     qpdfview
     zathura
+    # for drawing
+    inkscape
 
     # neovim GUI
     neovide
@@ -26,6 +28,7 @@
     # web browser
     chromium
     firefox
+    brave
     # e-mail & feed
     thunderbird
 
