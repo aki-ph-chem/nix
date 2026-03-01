@@ -10,6 +10,11 @@
     # cotainerd
     containerd = {
       enable = true;
+      settings = {
+        plugins."io.containerd.grpc.v1.cri".containerd.runtimes.wasm = {
+          runtime_type = "io.containerd.wasmtime.v1";
+        };
+      };
     };
 
     # QEMU/KVM by libvirt
@@ -26,6 +31,8 @@
 
   environment.systemPackages = with pkgs; [
     nerdctl
+    wasmtime
+    # ToDo: need shim for WASI
   ];
 
 }
