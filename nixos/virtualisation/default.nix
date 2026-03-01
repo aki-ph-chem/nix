@@ -7,6 +7,11 @@
       enable = true;
     };
 
+    # cotainerd
+    containerd = {
+      enable = true;
+    };
+
     # QEMU/KVM by libvirt
     libvirtd = {
       enable = true;
