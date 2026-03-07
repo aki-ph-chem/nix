@@ -11,6 +11,7 @@
     containerd = {
       enable = true;
       settings = {
+        ## config for containerd-shim-wasmtime-v1
         plugins."io.containerd.grpc.v1.cri".containerd.runtimes.wasm = {
           runtime_type = "io.containerd.wasmtime.v1";
         };
@@ -31,8 +32,6 @@
 
   environment.systemPackages = with pkgs; [
     nerdctl
-    wasmtime
-    # ToDo: need shim for WASI
   ];
 
 }
