@@ -19,7 +19,7 @@ let
   swayConfigBase = builtins.readFile "${dotfiles}/sway/config";
   # configs for shell
   shellConfigs = {
-    envVarShell = '''';
+    envVarShell = "";
     aliases = {
       lock = ''
         swaylock \
@@ -189,6 +189,7 @@ nixpkgs.lib.nixosSystem {
           "wheel"
           "networkmanager"
           "docker"
+          "containerd"
         ]; # Enable ‘sudo’ for the user.
         packages = with pkgs; [
         ];
