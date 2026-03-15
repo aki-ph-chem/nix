@@ -15,7 +15,9 @@
 
   users.users."${userName}".packages = with pkgs; [
     ## sound related packages
-    helvum
+
+    # TODO:
+    # helvm is removed so, I want to find and install an alternative
     pavucontrol
   ];
 }
