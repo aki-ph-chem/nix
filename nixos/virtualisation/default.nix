@@ -26,7 +26,6 @@
 
   environment.systemPackages = with pkgs; [
     nerdctl
-    containerd-shim-wasmtime-v1.packages.x86_64-linux.default
   ];
 
   systemd.services.containerd = {
