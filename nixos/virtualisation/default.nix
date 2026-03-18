@@ -35,4 +35,9 @@
     containerd-shim-wasmtime-v1.packages.x86_64-linux.default
   ];
 
+  systemd.services.containerd = {
+    path = [
+      containerd-shim-wasmtime-v1.packages.x86_64-linux.default
+    ];
+  };
 }
