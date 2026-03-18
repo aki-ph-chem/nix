@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, containerd-shim-wasmtime-v1 }:
 {
 
   virtualisation = {
@@ -10,12 +10,6 @@
     # cotainerd
     containerd = {
       enable = true;
-      settings = {
-        ## config for containerd-shim-wasmtime-v1
-        plugins."io.containerd.grpc.v1.cri".containerd.runtimes.wasm = {
-          runtime_type = "io.containerd.wasmtime.v1";
-        };
-      };
     };
 
     # QEMU/KVM by libvirt
@@ -34,4 +28,9 @@
     nerdctl
   ];
 
+  systemd.services.containerd = {
+    path = [
+      containerd-shim-wasmtime-v1.packages.x86_64-linux.default
+    ];
+  };
 }
