@@ -28,6 +28,10 @@
       url = "github:aki-ph-chem/pgopher-nixos/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # containerd-shim-wasmtime-v1
+    containerd-shim-wasmtime-v1 = {
+      url = "github:aki-ph-chem/runwasi-flake/feat/containerd-shim-wasmtime-v1";
+    };
   };
 
   outputs =
@@ -38,6 +42,7 @@
       nixgl,
       dotfiles,
       pgopher,
+      containerd-shim-wasmtime-v1,
       self,
       ...
     }@inputs:

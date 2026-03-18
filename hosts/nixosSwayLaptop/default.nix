@@ -10,6 +10,7 @@ let
     self
     dotfiles
     pgopher
+    containerd-shim-wasmtime-v1
     ;
   stdenv.hostPlatform.system = "x86_64-linux";
   pkgs = nixpkgs.legacyPackages.${stdenv.hostPlatform.system};
@@ -69,7 +70,7 @@ nixpkgs.lib.nixosSystem {
         (import "${flakeRoot}/nixos/gui-app" { inherit pkgs userName pgopher; })
         (import "${flakeRoot}/nixos/nix-ld" { inherit pkgs; })
         (import "${flakeRoot}/nixos/locale" { inherit pkgs; })
-        (import "${flakeRoot}/nixos/virtualisation" { inherit pkgs; })
+        (import "${flakeRoot}/nixos/virtualisation" { inherit pkgs containerd-shim-wasmtime-v1; })
         # Include the results of the hardware scan.
         ./hardware-configuration.nix
         home-manager.nixosModules.home-manager
