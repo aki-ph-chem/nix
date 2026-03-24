@@ -87,6 +87,7 @@ nixpkgs.lib.nixosSystem {
               (import "${flakeRoot}/modules/shell.nix" { inherit pkgs shellConfigs; })
               (import "${flakeRoot}/modules/wezterm.nix" { inherit dotfiles; })
               "${flakeRoot}/modules/latex.nix"
+              "${flakeRoot}/modules/zellij.nix"
             ];
             home.packages = [
             ];
