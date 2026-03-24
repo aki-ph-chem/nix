@@ -12,6 +12,16 @@
       enable = true;
     };
 
+    containers = {
+      enable = true;
+      # policy for containers
+      policy = {
+        default = [
+          { type = "insecureAcceptAnything"; }
+        ];
+      };
+    };
+
     # QEMU/KVM by libvirt
     libvirtd = {
       enable = true;
@@ -26,6 +36,7 @@
 
   environment.systemPackages = with pkgs; [
     nerdctl
+    buildah
   ];
 
   systemd.services.containerd = {
