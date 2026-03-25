@@ -156,6 +156,8 @@ nixpkgs.lib.nixosSystem {
       networking.firewall.enable = true;
       # enable bluetooth
       hardware.bluetooth.enable = true;
+      # tailscale
+      services.tailscale.enable = true;
 
       # OpenSSH
       # Enable the OpenSSH daemon.
