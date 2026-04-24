@@ -77,7 +77,7 @@ nixpkgs.lib.nixosSystem {
         {
           home-manager.useUserPackages = true;
           home-manager.users."${userName}" = {
-            home.stateVersion = "25.05";
+            home.stateVersion = "26.05";
             imports = [
               "${flakeRoot}/modules/neovim.nix"
               "${flakeRoot}/modules/cli-tools.nix"
