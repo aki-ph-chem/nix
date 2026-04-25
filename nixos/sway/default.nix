@@ -29,9 +29,11 @@
 
     serviceConfig = {
       Type = "simple";
-      ExecStart = ''${pkgs.kanshi}/bin/kanshi'';
+      ExecStart = "${pkgs.kanshi}/bin/kanshi";
     };
   };
+
+  services.libinput.enable = true;
 
   users.users."${userName}".packages = with pkgs; [
     ## sway-related
