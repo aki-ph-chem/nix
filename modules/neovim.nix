@@ -32,7 +32,7 @@ in
   home.file.".config/nvim" =
     if builtins.pathExists "${nvimConfigPath}" then
       {
-        source = config.lib.file.mkOutOfStoreSymlink "${nvimConfigPath}";
+        source = "${nvimConfigPath}";
         recursive = true;
       }
     else
