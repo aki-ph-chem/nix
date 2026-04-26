@@ -100,6 +100,9 @@ nixpkgs.lib.nixosSystem {
                   # screen shot by flamegraph
                   bindsym Print exec flameshot gui -p $HOME/Pictures/ScreenShot/
 
+                  # start libinput-gestures
+                  exec libinput-gestures
+
                   # give Sway a little time to startup before starting kanshi.
                   exec sleep 5; systemctl --user start kanshi.service
                 '';
@@ -124,6 +127,15 @@ nixpkgs.lib.nixosSystem {
                 source = "${dotfiles}/wlogout";
                 recursive = true;
               };
+              # config for libinput-gestures
+              # ref: https://github.com/bulletmark/libinput-gestures
+              ".config/libinput-gestures.conf" = {
+                text = ''
+                  gesture swipe left 3  swaymsg workspace next
+                  gesture swipe right 3 swaymsg workspace prev
+                '';
+              };
+
             };
           };
         }
@@ -194,6 +206,7 @@ nixpkgs.lib.nixosSystem {
           "networkmanager"
           "docker"
           "containerd"
+          "input"
         ]; # Enable ‘sudo’ for the user.
         packages = with pkgs; [
         ];
