@@ -41,5 +41,6 @@
     wlogout
     waypaper
     flameshot
+    libinput-gestures
   ];
 }
