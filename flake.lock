@@ -3,14 +3,15 @@
     "containerd-shim-wasmtime-v1": {
       "inputs": {
         "nixpkgs": "nixpkgs",
+        "runwasi-src": "runwasi-src",
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1774121297,
-        "narHash": "sha256-aCia/50BJgBS9H0IW0QK3W1ZwwHf1HYy4t6m42445xM=",
+        "lastModified": 1778157210,
+        "narHash": "sha256-9KDUNAwzDIAWIAgUiPunz65IhMndkofs3HFwN4iO/Oc=",
         "owner": "aki-ph-chem",
         "repo": "runwasi-flake",
-        "rev": "d9deaeecf143df77f3b5f0de819917bbd9083e72",
+        "rev": "b7f2458ef2caddb2f9aa7b247bfc9dbdc12edafb",
         "type": "github"
       },
       "original": {
@@ -287,6 +288,23 @@
         "nixgl": "nixgl",
         "nixpkgs": "nixpkgs_4",
         "pgopher": "pgopher"
+      }
+    },
+    "runwasi-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1771981044,
+        "narHash": "sha256-cm672lwhTWRyhw+C8ug3mWOjIgPkO/At/9YgwK8HLME=",
+        "owner": "containerd",
+        "repo": "runwasi",
+        "rev": "cf51126b59adffc18538c839922125e74e512b0d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "containerd",
+        "repo": "runwasi",
+        "rev": "cf51126b59adffc18538c839922125e74e512b0d",
+        "type": "github"
       }
     },
     "rust-overlay": {
