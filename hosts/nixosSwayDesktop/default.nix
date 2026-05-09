@@ -9,6 +9,7 @@ let
     self
     dotfiles
     pgopher
+    containerd-shim-wasmtime-v1
     ;
   stdenv.hostPlatform.system = "x86_64-linux";
   pkgs = nixpkgs.legacyPackages.${stdenv.hostPlatform.system};
@@ -17,7 +18,7 @@ let
   flakeRoot = self.outPath;
   swayConfigBase = builtins.readFile "${dotfiles}/sway/config";
   shellConfigs = {
-    envVarShell = '''';
+    envVarShell = "";
     aliases = {
       lock = ''
         swaylock \
@@ -52,14 +53,14 @@ nixpkgs.lib.nixosSystem {
         (import "${flakeRoot}/nixos/gui-app" { inherit pkgs pgopher userName; })
         (import "${flakeRoot}/nixos/nix-ld" { inherit pkgs; })
         (import "${flakeRoot}/nixos/locale" { inherit pkgs; })
-        (import "${flakeRoot}/nixos/virtualisation" { inherit pkgs; })
+        (import "${flakeRoot}/nixos/virtualisation" { inherit pkgs containerd-shim-wasmtime-v1; })
         # Include the results of the hardware scan.
         ./hardware-configuration.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useUserPackages = true;
           home-manager.users."${userName}" = {
-            home.stateVersion = "25.05";
+            home.stateVersion = "26.05";
             imports = [
               "${flakeRoot}/modules/neovim.nix"
               "${flakeRoot}/modules/cli-tools.nix"
