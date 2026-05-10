@@ -32,7 +32,7 @@ in
   home.file.".config/nvim" =
     if builtins.pathExists "${nvimConfigPath}" then
       {
-        source = "${nvimConfigPath}";
+        source = config.lib.file.mkOutOfStoreSymlink "${nvimConfigPath}";
         recursive = true;
       }
     else
@@ -45,6 +45,7 @@ in
   programs.neovim = {
     enable = true;
     viAlias = true;
+    sideloadInitLua = true;
 
     extraWrapperArgs = [
       "--set"
