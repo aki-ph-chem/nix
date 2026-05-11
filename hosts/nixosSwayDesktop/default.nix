@@ -54,6 +54,7 @@ nixpkgs.lib.nixosSystem {
         (import "${flakeRoot}/nixos/nix-ld" { inherit pkgs; })
         (import "${flakeRoot}/nixos/locale" { inherit pkgs; })
         (import "${flakeRoot}/nixos/virtualisation" { inherit pkgs containerd-shim-wasmtime-v1; })
+        (import "${flakeRoot}/nixos/nvidia" { inherit pkgs; })
         # Include the results of the hardware scan.
         ./hardware-configuration.nix
         home-manager.nixosModules.home-manager
