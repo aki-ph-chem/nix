@@ -11,8 +11,11 @@ let
     pgopher
     containerd-shim-wasmtime-v1
     ;
-  stdenv.hostPlatform.system = "x86_64-linux";
-  pkgs = nixpkgs.legacyPackages.${stdenv.hostPlatform.system};
+  system = "x86_64-linux";
+  pkgs = import nixpkgs {
+    inherit system;
+    config.allowUnfree = true;
+  };
   userName = "aki";
   # flakeRoot is path which flake.nix exists
   flakeRoot = self.outPath;
