@@ -73,6 +73,7 @@ nixpkgs.lib.nixosSystem {
               "${flakeRoot}/modules/nerd-fonts.nix"
               (import "${flakeRoot}/modules/shell.nix" { inherit pkgs shellConfigs; })
               (import "${flakeRoot}/modules/wezterm.nix" { inherit dotfiles; })
+              "${flakeRoot}/modules/zellij.nix"
             ];
             home.packages = [
             ];
