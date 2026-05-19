@@ -15,9 +15,11 @@ let
   # skk dict
   skkDictPath = "${libSkk}/share/skk/SKK-JISYO.L";
   # skk emoji dict ja
-  skkEmojiDictJa = builtins.fetchTarball {
-    url = "https://github.com/ymrl/SKK-JISYO.emoji-ja/archive/refs/heads/master.tar.gz";
-    sha256 = "1mws99wxy5j55aa3dv8ynqqbx5iw4553vkda6rsh054yn8hiy1bb";
+  skkEmojiDictJa = pkgs.fetchFromGitHub {
+    owner = "ymrl";
+    repo = "SKK-JISYO.emoji-ja";
+    rev = "5b4df40f8ac71760816f1b2929f493505b463bd1";
+    hash = "sha256-awUfIbKeFAB1NqrNPUohPJa+MLYe7TaUKkUW33lKmtc=";
   };
   skkEmojiDictJaPath = "${skkEmojiDictJa}/SKK-JISYO.emoji-ja.utf8";
   # skk emoji dict en
