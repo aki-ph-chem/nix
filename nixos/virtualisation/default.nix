@@ -39,7 +39,9 @@
     buildah
   ];
 
+  systemd.services.docker.wantedBy = pkgs.lib.mkForce [ ];
   systemd.services.containerd = {
+    wantedBy = pkgs.lib.mkForce [ ];
     path = [
       containerd-shim-wasmtime-v1.packages.x86_64-linux.default
     ];
