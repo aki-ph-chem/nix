@@ -46,4 +46,7 @@
       containerd-shim-wasmtime-v1.packages.x86_64-linux.default
     ];
   };
+  # for libvirt + QEMU
+  systemd.services.libvirtd.wantedBy = pkgs.lib.mkForce [ ];
+  systemd.services.virtqemud.wantedBy = pkgs.lib.mkForce [ ];
 }
