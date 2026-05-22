@@ -47,14 +47,20 @@ in
     buildah
   ];
 
-  systemd.services.docker.wantedBy = serviceTarget;
-  systemd.services.containerd = {
-    wantedBy = serviceTarget;
-    path = [
-      containerd-shim-wasmtime-v1.packages.x86_64-linux.default
-    ];
+  systemd.services = {
+    # Docker
+    docker.wantedBy = serviceTarget;
+
+    # containerd
+    containerd = {
+      wantedBy = serviceTarget;
+      path = [
+        containerd-shim-wasmtime-v1.packages.x86_64-linux.default
+      ];
+    };
+
+    # for libvirt + QEMU
+    libvirtd.wantedBy = serviceTarget;
+    virtqemud.wantedBy = serviceTarget;
   };
-  # for libvirt + QEMU
-  systemd.services.libvirtd.wantedBy = serviceTarget;
-  systemd.services.virtqemud.wantedBy = serviceTarget;
 }
