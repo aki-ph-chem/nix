@@ -53,7 +53,10 @@ nixpkgs.lib.nixosSystem {
         (import "${flakeRoot}/nixos/gui-app" { inherit pkgs pgopher userName; })
         (import "${flakeRoot}/nixos/nix-ld" { inherit pkgs; })
         (import "${flakeRoot}/nixos/locale" { inherit pkgs; })
-        (import "${flakeRoot}/nixos/virtualisation" { inherit pkgs containerd-shim-wasmtime-v1; })
+        (import "${flakeRoot}/nixos/virtualisation" {
+          inherit pkgs containerd-shim-wasmtime-v1;
+          isAutoStart = true;
+        })
         # Include the results of the hardware scan.
         ./hardware-configuration.nix
         home-manager.nixosModules.home-manager
