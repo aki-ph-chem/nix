@@ -11,8 +11,11 @@ let
     pgopher
     containerd-shim-wasmtime-v1
     ;
-  stdenv.hostPlatform.system = "x86_64-linux";
-  pkgs = nixpkgs.legacyPackages.${stdenv.hostPlatform.system};
+  system = "x86_64-linux";
+  pkgs = import nixpkgs {
+    inherit system;
+    config.allowUnfree = true;
+  };
   userName = "aki";
   # flakeRoot is path which flake.nix exists
   flakeRoot = self.outPath;
@@ -57,6 +60,7 @@ nixpkgs.lib.nixosSystem {
           inherit pkgs containerd-shim-wasmtime-v1;
           isAutoStart = true;
         })
+        (import "${flakeRoot}/nixos/nvidia" { inherit pkgs; })
         # Include the results of the hardware scan.
         ./hardware-configuration.nix
         home-manager.nixosModules.home-manager
@@ -72,6 +76,7 @@ nixpkgs.lib.nixosSystem {
               "${flakeRoot}/modules/nerd-fonts.nix"
               (import "${flakeRoot}/modules/shell.nix" { inherit pkgs shellConfigs; })
               (import "${flakeRoot}/modules/wezterm.nix" { inherit dotfiles; })
+              "${flakeRoot}/modules/zellij.nix"
             ];
             home.packages = [
             ];
