@@ -1,4 +1,12 @@
-{ pkgs, containerd-shim-wasmtime-v1 }:
+{
+  pkgs,
+  containerd-shim-wasmtime-v1,
+  isAutoStart ? false,
+  ...
+}:
+let
+  serviceTarget = if isAutoStart then [ "multi-user.target" ] else pkgs.lib.mkForce [ ];
+in
 {
 
   virtualisation = {
@@ -39,9 +47,20 @@
     buildah
   ];
 
-  systemd.services.containerd = {
-    path = [
-      containerd-shim-wasmtime-v1.packages.x86_64-linux.default
-    ];
+  systemd.services = {
+    # Docker
+    docker.wantedBy = serviceTarget;
+
+    # containerd
+    containerd = {
+      wantedBy = serviceTarget;
+      path = [
+        containerd-shim-wasmtime-v1.packages.x86_64-linux.default
+      ];
+    };
+
+    # for libvirt + QEMU
+    libvirtd.wantedBy = serviceTarget;
+    virtqemud.wantedBy = serviceTarget;
   };
 }
