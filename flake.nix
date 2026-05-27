@@ -32,6 +32,10 @@
     containerd-shim-wasmtime-v1 = {
       url = "github:aki-ph-chem/runwasi-flake/feat/containerd-shim-wasmtime-v1";
     };
+    # wlroots with nvidia patch
+    wlroots-nvidia = {
+      url = "github:aki-ph-chem/wlroots-nvidia-flake/main";
+    };
   };
 
   outputs =

@@ -10,6 +10,7 @@ let
     dotfiles
     pgopher
     containerd-shim-wasmtime-v1
+    wlroots-nvidia
     ;
   system = "x86_64-linux";
   pkgs = import nixpkgs {
@@ -49,7 +50,7 @@ nixpkgs.lib.nixosSystem {
     {
       imports = [
         (import "${flakeRoot}/nixos/fonts" { inherit pkgs; })
-        (import "${flakeRoot}/nixos/sway" { inherit pkgs userName; })
+        (import "${flakeRoot}/nixos/sway" { inherit pkgs userName wlroots-nvidia; })
         (import "${flakeRoot}/nixos/sound" { inherit pkgs userName; })
         (import "${flakeRoot}/nixos/gpg" { inherit pkgs userName; })
         (import "${flakeRoot}/nixos/polkit" { inherit pkgs; })

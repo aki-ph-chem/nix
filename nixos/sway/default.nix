@@ -1,4 +1,21 @@
-{ pkgs, userName }:
+{
+  pkgs,
+  userName,
+  wlroots-nvidia,
+}:
+let
+  swayfx-nvidia = pkgs.symlinkJoin {
+    name = "swayfx-nvidia";
+    paths = [ pkgs.swayfx ];
+
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+
+    postBuild = ''
+      wrapProgram $out/bin/sway \
+      --prefix LD_LIBRARY_PATH: "${pkgs.lib.makeLibraryPath [ wlroots-nvidia ]}"
+    '';
+  };
+in
 {
   programs.sway = {
     enable = true;
@@ -16,7 +33,7 @@
       pkgs.foot
     ];
     #use swayfx
-    package = pkgs.swayfx;
+    package = swayfx-nvidia;
   };
 
   # ref: https://wiki.nixos.org/wiki/Sway
