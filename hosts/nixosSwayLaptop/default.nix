@@ -155,7 +155,7 @@ nixpkgs.lib.nixosSystem {
 
       networking.hostName = "nix"; # Define your hostname.
       networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
-      networking.networkmanager.wifi.backend = "iwd"; # Enables wireless support via iwd.
+      #networking.networkmanager.wifi.backend = "iwd"; # Enables wireless support via iwd.
       # config for iwd
       networking.wireless.iwd.settings = {
         Network = {
