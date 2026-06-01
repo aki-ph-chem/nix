@@ -6,6 +6,7 @@
 
 let
   nvimConfigPath = "${config.home.homeDirectory}/neovim-config/nvim";
+  nvimConfigYAPath = "${config.home.homeDirectory}/neovim-config-yet-another/nvim";
   errorMessage =
     { path, url }:
     ''
@@ -45,6 +46,17 @@ in
       builtins.abort errorMessage {
         path = "${nvimConfigPath}";
         url = "https://github.com/aki-ph-chem/neovim-config.git";
+      };
+  home.file.".config/nvim-ya" =
+    if builtins.pathExists "${nvimConfigYAPath}" then
+      {
+        source = config.lib.file.mkOutOfStoreSymlink "${nvimConfigYAPath}";
+        recursive = true;
+      }
+    else
+      builtins.abort errorMessage {
+        path = "${nvimConfigYAPath}";
+        url = "https://github.com/aki-ph-chem/neovim-config-yet-another.git";
       };
 
   home.packages = [
