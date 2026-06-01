@@ -14,6 +14,17 @@ let
       Please clone the repository ${url} from github.com as below(https):
       git clone ${url} ${path}
     '';
+  setConfigPath =
+    { path, url }:
+    if builtins.pathExists path then
+      {
+        source = config.lib.file.mkOutOfStoreSymlink path;
+        recursive = true;
+      }
+    else
+      builtins.abort errorMessage {
+        inherit path url;
+      };
   libSkk = pkgs.libskk;
   # skk dict
   skkDictPath = "${libSkk}/share/skk/SKK-JISYO.L";
@@ -35,29 +46,14 @@ let
   skkEmojiDictPath = "${skkEmojiDict}/SKK-JISYO.emoji.utf8";
 in
 {
-
-  home.file.".config/nvim" =
-    if builtins.pathExists "${nvimConfigPath}" then
-      {
-        source = config.lib.file.mkOutOfStoreSymlink "${nvimConfigPath}";
-        recursive = true;
-      }
-    else
-      builtins.abort errorMessage {
-        path = "${nvimConfigPath}";
-        url = "https://github.com/aki-ph-chem/neovim-config.git";
-      };
-  home.file.".config/nvim-ya" =
-    if builtins.pathExists "${nvimConfigYAPath}" then
-      {
-        source = config.lib.file.mkOutOfStoreSymlink "${nvimConfigYAPath}";
-        recursive = true;
-      }
-    else
-      builtins.abort errorMessage {
-        path = "${nvimConfigYAPath}";
-        url = "https://github.com/aki-ph-chem/neovim-config-yet-another.git";
-      };
+  home.file.".config/nvim" = setConfigPath {
+    path = nvimConfigPath;
+    url = "https://github.com/aki-ph-chem/neovim-config.git";
+  };
+  home.file.".config/nvim-ya" = setConfigPath {
+    path = nvimConfigYAPath;
+    url = "https://github.com/aki-ph-chem/neovim-config-yet-another.git";
+  };
 
   home.packages = [
     pkgs.libskk
