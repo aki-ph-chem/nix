@@ -25,6 +25,10 @@ let
       builtins.abort errorMessage {
         inherit path url;
       };
+  nvimYetAnother = pkgs.writeShellScriptBin "yvim" ''
+    export NVIM_APPNAME=nvim-ya
+    exec ${config.programs.neovim.finalPackage}/bin/nvim "$@"
+  '';
   libSkk = pkgs.libskk;
   # skk dict
   skkDictPath = "${libSkk}/share/skk/SKK-JISYO.L";
@@ -57,6 +61,7 @@ in
 
   home.packages = [
     pkgs.libskk
+    nvimYetAnother
   ];
 
   programs.neovim = {
