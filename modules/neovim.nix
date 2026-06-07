@@ -6,10 +6,28 @@
 
 let
   nvimConfigPath = "${config.home.homeDirectory}/neovim-config/nvim";
-  errorMessageNvim = ''
-    Neovim config not found at ${nvimConfigPath}. 
-    Please clone the repository aki-ph-chem/neovim-config from github.com as below(https):
-    git clone https://github.com/aki-ph-chem/neovim-config.git ${config.home.homeDirectory}/neovim-config
+  nvimConfigYAPath = "${config.home.homeDirectory}/neovim-config-yet-another/nvim";
+  errorMessage =
+    { path, url }:
+    ''
+      Neovim config not found at ${path}.
+      Please clone the repository ${url} from github.com as below(https):
+      git clone ${url} ${path}
+    '';
+  setConfigPath =
+    { path, url }:
+    if builtins.pathExists path then
+      {
+        source = config.lib.file.mkOutOfStoreSymlink path;
+        recursive = true;
+      }
+    else
+      builtins.abort errorMessage {
+        inherit path url;
+      };
+  nvimYetAnother = pkgs.writeShellScriptBin "yvim" ''
+    export NVIM_APPNAME=nvim-ya
+    exec ${config.programs.neovim.finalPackage}/bin/nvim "$@"
   '';
   libSkk = pkgs.libskk;
   # skk dict
@@ -32,18 +50,18 @@ let
   skkEmojiDictPath = "${skkEmojiDict}/SKK-JISYO.emoji.utf8";
 in
 {
-
-  home.file.".config/nvim" =
-    if builtins.pathExists "${nvimConfigPath}" then
-      {
-        source = config.lib.file.mkOutOfStoreSymlink "${nvimConfigPath}";
-        recursive = true;
-      }
-    else
-      builtins.abort errorMessageNvim;
+  home.file.".config/nvim" = setConfigPath {
+    path = nvimConfigPath;
+    url = "https://github.com/aki-ph-chem/neovim-config.git";
+  };
+  home.file.".config/nvim-ya" = setConfigPath {
+    path = nvimConfigYAPath;
+    url = "https://github.com/aki-ph-chem/neovim-config-yet-another.git";
+  };
 
   home.packages = [
     pkgs.libskk
+    nvimYetAnother
   ];
 
   programs.neovim = {
