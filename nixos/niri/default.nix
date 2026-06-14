@@ -15,5 +15,7 @@
       pkgs.grim
       pkgs.foot
     ];
+    # enable Xwayland
+    xwayland.enable = true;
   };
 }
