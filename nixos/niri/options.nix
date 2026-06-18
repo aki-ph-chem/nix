@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.programs.niri;
 in
@@ -12,7 +17,7 @@ in
   options.programs.niri.xwayland.enable = lib.mkEnableOption "XWayland support for niri";
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = cfg.extraPackages
-      ++ lib.optionals cfg.xwayland.enable [ pkgs.xwayland ];
+    environment.systemPackages =
+      cfg.extraPackages ++ lib.optionals cfg.xwayland.enable [ pkgs.xwayland-satellite ];
   };
 }
