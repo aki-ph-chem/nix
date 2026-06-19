@@ -1,10 +1,10 @@
-{ pkgs, userName }:
+{ pkgs, ... }:
 {
-  programs.sway = {
+  imports = [ ./options.nix ];
+
+  programs.niri = {
     enable = true;
-    wrapperFeatures.gtk = true;
-    xwayland.enable = true;
-    # sway related pkgs
+    # niri related pkgs
     extraPackages = [
       pkgs.waybar
       pkgs.swaybg
@@ -15,7 +15,7 @@
       pkgs.grim
       pkgs.foot
     ];
-    #use swayfx
-    package = pkgs.swayfx;
+    # enable Xwayland
+    xwayland.enable = true;
   };
 }
