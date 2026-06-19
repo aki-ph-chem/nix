@@ -19,20 +19,6 @@
     package = pkgs.swayfx;
   };
 
-  # ref: https://wiki.nixos.org/wiki/Sway
-  systemd.user.services.kanshi = {
-    description = "kanshi daemon";
-    environment = {
-      WAYLAND_DISPLAY = "wayland-1";
-      DISPLAY = ":0";
-    };
-
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.kanshi}/bin/kanshi";
-    };
-  };
-
   services.libinput.enable = true;
 
   users.users."${userName}".packages = with pkgs; [
