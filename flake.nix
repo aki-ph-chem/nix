@@ -12,7 +12,7 @@
 
     # for secure-boot
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v1.0.0";
+      url = "github:nix-community/lanzaboote/v1.1.0";
       # Optional but recommended to limit the size of your system closure.
       inputs.nixpkgs.follows = "nixpkgs";
     };
