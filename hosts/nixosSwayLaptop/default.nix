@@ -106,8 +106,7 @@ nixpkgs.lib.nixosSystem {
                   # start libinput-gestures
                   exec libinput-gestures
 
-                  # give Sway a little time to startup before starting kanshi.
-                  exec sleep 5; systemctl --user start kanshi.service
+                  exec_always "systemctl --user start sway-session.target"
                 '';
               };
               # waybar

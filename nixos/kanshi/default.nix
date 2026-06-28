@@ -11,5 +11,8 @@
       Type = "simple";
       ExecStart = "${pkgs.kanshi}/bin/kanshi";
     };
+
+    # Install
+    wantedBy = [ "sway-session.target" ];
   };
 }
