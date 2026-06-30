@@ -18,4 +18,13 @@
     # enable Xwayland
     xwayland.enable = true;
   };
+
+  # define niri-session
+  systemd.user.targets.niri-session = {
+    description = "niri compositor session";
+    documentation = [ "man:systemd.special(7)" ];
+    bindsTo = [ "graphical-session.target" ];
+    wants = [ "graphical-session-pre.target" ];
+    after = [ "graphical-session-pre.target" ];
+  };
 }

@@ -13,6 +13,9 @@
     };
 
     # Install
-    wantedBy = [ "sway-session.target" ];
+    wantedBy = [
+      "sway-session.target"
+      "niri-session.target"
+    ];
   };
 }
