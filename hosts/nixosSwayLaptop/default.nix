@@ -61,7 +61,7 @@ nixpkgs.lib.nixosSystem {
         };
       }
     )
-    nix-program-module-example.nixosModules.default
+    nix-program-module-example.nixosModules.x86_64-linux.default
     {
       imports = [
         (import "${flakeRoot}/nixos/fonts" { inherit pkgs; })
