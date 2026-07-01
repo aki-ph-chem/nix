@@ -32,6 +32,11 @@
     containerd-shim-wasmtime-v1 = {
       url = "github:aki-ph-chem/runwasi-flake/feat/containerd-shim-wasmtime-v1";
     };
+    # nix-program-module-example
+    nix-program-module-example = {
+      # https://github.com/aki-ph-chem/nix-program-module-example/tree/feat/module
+      url = "github:aki-ph-chem/nix-program-module-example/feat/module";
+    };
   };
 
   outputs =
@@ -43,6 +48,7 @@
       dotfiles,
       pgopher,
       containerd-shim-wasmtime-v1,
+      nix-program-module-example,
       self,
       ...
     }@inputs:

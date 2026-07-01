@@ -11,6 +11,7 @@ let
     dotfiles
     pgopher
     containerd-shim-wasmtime-v1
+    nix-program-module-example
     ;
   stdenv.hostPlatform.system = "x86_64-linux";
   pkgs = nixpkgs.legacyPackages.${stdenv.hostPlatform.system};
@@ -60,6 +61,7 @@ nixpkgs.lib.nixosSystem {
         };
       }
     )
+    nix-program-module-example.nixosModules.default
     {
       imports = [
         (import "${flakeRoot}/nixos/fonts" { inherit pkgs; })
@@ -219,6 +221,8 @@ nixpkgs.lib.nixosSystem {
       };
       # uninstall nano
       programs.nano.enable = false;
+
+      programs.status-monitor.enable = true;
 
       environment.sessionVariables = {
         EDITOR = "nvim";
