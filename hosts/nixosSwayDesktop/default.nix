@@ -50,6 +50,8 @@ nixpkgs.lib.nixosSystem {
       imports = [
         (import "${flakeRoot}/nixos/fonts" { inherit pkgs; })
         (import "${flakeRoot}/nixos/sway" { inherit pkgs userName; })
+        "${flakeRoot}/nixos/niri"
+        (import "${flakeRoot}/nixos/sway-related" { inherit pkgs userName; })
         (import "${flakeRoot}/nixos/sound" { inherit pkgs userName; })
         (import "${flakeRoot}/nixos/gpg" { inherit pkgs userName; })
         (import "${flakeRoot}/nixos/polkit" { inherit pkgs; })
