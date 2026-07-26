@@ -91,6 +91,7 @@ nixpkgs.lib.nixosSystem {
               (import "${flakeRoot}/modules/wezterm.nix" { inherit dotfiles; })
               "${flakeRoot}/modules/latex.nix"
               "${flakeRoot}/modules/zellij.nix"
+              "${flakeRoot}/modules/opencode.nix"
             ];
             home.packages = [
             ];
