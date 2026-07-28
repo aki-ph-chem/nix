@@ -157,7 +157,13 @@ nixpkgs.lib.nixosSystem {
 
       # OpenSSH
       # Enable the OpenSSH daemon.
-      services.openssh.enable = true;
+      services.openssh = {
+        enable = true;
+        settings = {
+          UseDNS = "no";
+          GSSAPIAuthentication = "no";
+        };
+      };
 
       environment.sessionVariables = {
         EDITOR = "nvim";
