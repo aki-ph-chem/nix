@@ -117,9 +117,18 @@ nixpkgs.lib.nixosSystem {
       boot.loader.efi.canTouchEfiVariables = true;
       boot.kernelPackages = pkgs.linuxPackages_latest; # Use latest kernel.
       boot.kernelParams = [ "pcie_aspm=off" ]; # Fix r8169 NIC link instability
-      boot.extraModulePackages = [ pkgs.linuxPackages_latest.r8168 ];
-      boot.kernelModules = [ "r8168" ];
-      boot.blacklistedKernelModules = [ "r8169" ];
+
+      # Disable EEE (Energy Efficient Ethernet) for RTL8125B stability
+      systemd.services.disable-eee = {
+        description = "Disable EEE on enp3s0";
+        wantedBy = [ "network-online.target" ];
+        after = [ "network-online.target" ];
+        serviceConfig = {
+          Type = "oneshot";
+          ExecStart = "${pkgs.ethtool}/bin/ethtool --set-eee enp3s0 eee off tx off";
+          RemainAfterExit = true;
+        };
+      };
 
       networking.hostName = "nixos"; # Define your hostname.
       # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
