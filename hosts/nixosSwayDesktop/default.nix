@@ -160,8 +160,7 @@ nixpkgs.lib.nixosSystem {
       services.openssh = {
         enable = true;
         settings = {
-          UseDNS = "no";
-          GSSAPIAuthentication = "no";
+          UseDns = false;
         };
       };
 
