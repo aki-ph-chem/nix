@@ -161,6 +161,7 @@ nixpkgs.lib.nixosSystem {
         enable = true;
         settings = {
           UseDns = false;
+          LogLevel = "VERBOSE";
         };
       };
 
