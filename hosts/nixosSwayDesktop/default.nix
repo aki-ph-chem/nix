@@ -117,6 +117,9 @@ nixpkgs.lib.nixosSystem {
       boot.loader.efi.canTouchEfiVariables = true;
       boot.kernelPackages = pkgs.linuxPackages_latest; # Use latest kernel.
       boot.kernelParams = [ "pcie_aspm=off" ]; # Fix r8169 NIC link instability
+      boot.extraModulePackages = [ config.boot.kernelPackages.r8168 ];
+      boot.kernelModules = [ "r8168" ];
+      boot.blacklistedKernelModules = [ "r8169" ];
 
       networking.hostName = "nixos"; # Define your hostname.
       # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
