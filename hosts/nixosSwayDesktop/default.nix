@@ -162,6 +162,9 @@ nixpkgs.lib.nixosSystem {
         settings = {
           UseDns = false;
           LogLevel = "VERBOSE";
+          ClientAliveInterval = 60;
+          ClientAliveCountMax = 3;
+          TcpKeepAlive = true;
         };
       };
 
