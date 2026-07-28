@@ -117,7 +117,7 @@ nixpkgs.lib.nixosSystem {
       boot.loader.efi.canTouchEfiVariables = true;
       boot.kernelPackages = pkgs.linuxPackages_latest; # Use latest kernel.
       boot.kernelParams = [ "pcie_aspm=off" ]; # Fix r8169 NIC link instability
-      boot.extraModulePackages = [ config.boot.kernelPackages.r8168 ];
+      boot.extraModulePackages = [ pkgs.linuxPackages_latest.r8168 ];
       boot.kernelModules = [ "r8168" ];
       boot.blacklistedKernelModules = [ "r8169" ];
 
