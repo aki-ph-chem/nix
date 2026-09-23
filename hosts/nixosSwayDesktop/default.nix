@@ -60,6 +60,7 @@ nixpkgs.lib.nixosSystem {
           inherit pkgs containerd-shim-wasmtime-v1;
           isAutoStart = true;
         })
+        (import "${flakeRoot}/nixos/cockpit" { inherit pkgs; })
         (import "${flakeRoot}/nixos/nvidia" { inherit pkgs; })
         # Include the results of the hardware scan.
         ./hardware-configuration.nix
