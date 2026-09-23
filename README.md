@@ -119,12 +119,25 @@ The configuration files are organized as follows(Folded):
 
 ### 🗑️ Cleaning Up Old Generations
 
+Get a list of /nix/store directories referenced by .direnv in each project
+
+```bash
+nix-store --gc --print-roots | grep "/.direnv/" 
+```
+
 Removes files from `/nix/store` that are no longer referenced by **old generations** (previous states of the system or home environment), freeing up disk space.
 
 ```bash
 nix-collect-garbage --delete-old # delete all old generations
 nix-collect-garbage --delete-older-than 7d # delete  older than 7days ago 
 nix-collect-garbage --delete-older-than 30d # delete  older than 30days ago 
+```
+
+clean by [`nh`](https://github.com/nix-community/nh) command
+
+```bash
+# Delete all content older than 30 days and keep only one generation.
+nix run nixpkgs#nh -- clean all --keep-since 30d --keep-one
 ```
 
 ### 🔍 Package Search

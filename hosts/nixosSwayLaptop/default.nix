@@ -213,6 +213,7 @@ nixpkgs.lib.nixosSystem {
           "networkmanager"
           "docker"
           "containerd"
+          "libvirtd"
           "input"
         ]; # Enable ‘sudo’ for the user.
         packages = with pkgs; [

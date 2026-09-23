@@ -161,6 +161,7 @@ nixpkgs.lib.nixosSystem {
           "wheel"
           "networkmanager"
           "docker"
+          "libvirtd"
         ]; # Enable ‘sudo’ for the user.
         packages = with pkgs; [
         ];
