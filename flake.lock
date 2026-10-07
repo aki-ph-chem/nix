@@ -242,11 +242,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1768234065,
-        "narHash": "sha256-XuW2l0bfjY7IFbSFG7xPTPjuScLvC4XzNCjJnqKL478=",
+        "lastModified": 1791390878,
+        "narHash": "sha256-FpnHLifcKiU8l+WqiNQtu+dRV1WC/Dgri+3YSkLdnLg=",
         "owner": "aki-ph-chem",
         "repo": "pgopher-nixos",
-        "rev": "039e21b7df6e89ac85a422c18065c8ed21dfbc40",
+        "rev": "7a1e772f3af4fafcf6019473f13aea7aa8a3cd8a",
         "type": "github"
       },
       "original": {
