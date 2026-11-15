@@ -17,9 +17,9 @@
       libxshmfence
       libXxf86vm
 
-      # GTK2
+      # GTK/GLib (gtk2 for PGOPHER is provided separately by the gui-app
+      # module; see docs/gtk2-pgopher.md)
       glib
-      gtk2
       gdk-pixbuf
 
       # others

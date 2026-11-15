@@ -10,6 +10,11 @@
     };
     nixgl.url = "github:nix-community/nixGL";
 
+    # gtk2 is being removed from nixpkgs (NixOS/nixpkgs#410814), but PGOPHER's
+    # prebuilt binary still requires it. Pin the last release branch that
+    # still ships gtk2. See docs/gtk2-pgopher.md for details.
+    nixpkgs-gtk2.url = "github:nixos/nixpkgs/nixos-26.05";
+
     # for secure-boot
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v1.1.0";
@@ -40,6 +45,7 @@
       lanzaboote,
       home-manager,
       nixgl,
+      nixpkgs-gtk2,
       dotfiles,
       pgopher,
       containerd-shim-wasmtime-v1,

@@ -5,6 +5,7 @@
 let
   inherit (inputs)
     nixpkgs
+    nixpkgs-gtk2
     home-manager
     self
     dotfiles
@@ -16,6 +17,8 @@ let
     inherit system;
     config.allowUnfree = true;
   };
+  # nixpkgs used only to provide gtk2 for PGOPHER (docs/gtk2-pgopher.md)
+  pkgsGtk2 = nixpkgs-gtk2.legacyPackages.${system};
   userName = "aki";
   # flakeRoot is path which flake.nix exists
   flakeRoot = self.outPath;
@@ -53,7 +56,7 @@ nixpkgs.lib.nixosSystem {
         (import "${flakeRoot}/nixos/sound" { inherit pkgs userName; })
         (import "${flakeRoot}/nixos/gpg" { inherit pkgs userName; })
         (import "${flakeRoot}/nixos/polkit" { inherit pkgs; })
-        (import "${flakeRoot}/nixos/gui-app" { inherit pkgs pgopher userName; })
+        (import "${flakeRoot}/nixos/gui-app" { inherit pkgs pkgsGtk2 pgopher userName; })
         (import "${flakeRoot}/nixos/nix-ld" { inherit pkgs; })
         (import "${flakeRoot}/nixos/locale" { inherit pkgs; })
         (import "${flakeRoot}/nixos/virtualisation" {
