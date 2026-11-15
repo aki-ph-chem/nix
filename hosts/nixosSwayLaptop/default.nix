@@ -5,6 +5,7 @@
 let
   inherit (inputs)
     nixpkgs
+    nixpkgs-gtk2
     lanzaboote
     home-manager
     self
@@ -14,6 +15,8 @@ let
     ;
   stdenv.hostPlatform.system = "x86_64-linux";
   pkgs = nixpkgs.legacyPackages.${stdenv.hostPlatform.system};
+  # nixpkgs used only to provide gtk2 for PGOPHER (docs/gtk2-pgopher.md)
+  pkgsGtk2 = nixpkgs-gtk2.legacyPackages.${stdenv.hostPlatform.system};
   userName = "aki";
   # flakeRoot is path which flake.nix exists
   flakeRoot = self.outPath;
@@ -70,7 +73,7 @@ nixpkgs.lib.nixosSystem {
         (import "${flakeRoot}/nixos/sound" { inherit pkgs userName; })
         (import "${flakeRoot}/nixos/gpg" { inherit pkgs userName; })
         (import "${flakeRoot}/nixos/polkit" { inherit pkgs; })
-        (import "${flakeRoot}/nixos/gui-app" { inherit pkgs userName pgopher; })
+        (import "${flakeRoot}/nixos/gui-app" { inherit pkgs pkgsGtk2 pgopher userName; })
         (import "${flakeRoot}/nixos/nix-ld" { inherit pkgs; })
         (import "${flakeRoot}/nixos/locale" { inherit pkgs; })
         (import "${flakeRoot}/nixos/virtualisation" { inherit pkgs containerd-shim-wasmtime-v1; })
