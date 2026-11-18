@@ -95,6 +95,7 @@ nixpkgs.lib.nixosSystem {
               "${flakeRoot}/modules/latex.nix"
               "${flakeRoot}/modules/zellij.nix"
               "${flakeRoot}/modules/opencode.nix"
+              (import "${flakeRoot}/modules/agent-skills.nix" { inherit inputs; })
             ];
             home.packages = [
             ];
