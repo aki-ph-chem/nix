@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "agent-skills": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794456227,
+        "narHash": "sha256-qu7S1arVl+Q6H/yZhJ2VdeDY/kBxY8mK8m6U49M0alk=",
+        "owner": "Kyure-A",
+        "repo": "agent-skills-nix",
+        "rev": "93a02cb60eda167de8c5baa085e4a2bcfc71b885",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Kyure-A",
+        "repo": "agent-skills-nix",
+        "type": "github"
+      }
+    },
     "containerd-shim-wasmtime-v1": {
       "inputs": {
         "nixpkgs": "nixpkgs",
@@ -153,6 +173,22 @@
         "type": "github"
       }
     },
+    "mattpocock-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794472958,
+        "narHash": "sha256-AYSRCvBL8TDDdW3rgKu2T7gl4YYDoDId0jYbabEFyfs=",
+        "owner": "mattpocock",
+        "repo": "skills",
+        "rev": "5863806dd4e15c63174bee4e7515a4256792ecfa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mattpocock",
+        "repo": "skills",
+        "type": "github"
+      }
+    },
     "nixgl": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -297,10 +333,12 @@
     },
     "root": {
       "inputs": {
+        "agent-skills": "agent-skills",
         "containerd-shim-wasmtime-v1": "containerd-shim-wasmtime-v1",
         "dotfiles": "dotfiles",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
+        "mattpocock-skills": "mattpocock-skills",
         "nixgl": "nixgl",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-gtk2": "nixpkgs-gtk2",

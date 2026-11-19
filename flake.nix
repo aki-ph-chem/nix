@@ -37,6 +37,18 @@
     containerd-shim-wasmtime-v1 = {
       url = "github:aki-ph-chem/runwasi-flake/feat/containerd-shim-wasmtime-v1";
     };
+
+    # Declarative Agent Skills management (Home Manager module)
+    agent-skills = {
+      url = "github:Kyure-A/agent-skills-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Agent Skills catalog (mattpocock/skills has no flake.nix)
+    mattpocock-skills = {
+      url = "github:mattpocock/skills";
+      flake = false;
+    };
   };
 
   outputs =

@@ -81,6 +81,7 @@ nixpkgs.lib.nixosSystem {
               (import "${flakeRoot}/modules/wezterm.nix" { inherit dotfiles; })
               "${flakeRoot}/modules/zellij.nix"
               "${flakeRoot}/modules/opencode.nix"
+              (import "${flakeRoot}/modules/agent-skills.nix" { inherit inputs; })
             ];
             home.packages = [
             ];
