@@ -308,6 +308,22 @@
         "type": "github"
       }
     },
+    "ponytail-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1795314718,
+        "narHash": "sha256-5m6JW3U6EMYUg4YVLh7nRRTWGY3shrFQ0wK0bediVFc=",
+        "owner": "DietrichGebert",
+        "repo": "ponytail",
+        "rev": "ebd8654c2c627f721eb8f9c0d1bd4090a29f9e10",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DietrichGebert",
+        "repo": "ponytail",
+        "type": "github"
+      }
+    },
     "pre-commit": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -342,7 +358,9 @@
         "nixgl": "nixgl",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-gtk2": "nixpkgs-gtk2",
-        "pgopher": "pgopher"
+        "pgopher": "pgopher",
+        "ponytail-skills": "ponytail-skills",
+        "yomiyasu-skills": "yomiyasu-skills"
       }
     },
     "runwasi-src": {
@@ -413,6 +431,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "yomiyasu-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1795594822,
+        "narHash": "sha256-fFMFGMrXDIhUTHnzn/wFU3rRw2mFw2diGf2lT9iXxiw=",
+        "owner": "nanaism",
+        "repo": "yomiyasu",
+        "rev": "3979c750b5e1fe9892bd47bb354f0fb51d534ff2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nanaism",
+        "repo": "yomiyasu",
         "type": "github"
       }
     }
