@@ -44,9 +44,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Agent Skills catalog (mattpocock/skills has no flake.nix)
+    # Agent Skills catalogs (the upstream repositories have no flake.nix)
     mattpocock-skills = {
       url = "github:mattpocock/skills";
+      flake = false;
+    };
+    yomiyasu-skills = {
+      url = "github:nanaism/yomiyasu";
+      flake = false;
+    };
+    ponytail-skills = {
+      url = "github:DietrichGebert/ponytail";
       flake = false;
     };
   };
